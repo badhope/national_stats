@@ -1,4 +1,11 @@
 # 📊 宏观经济智能分析平台 (National Statistics Intelligence Platform)
+[![GitHub Stars](https://img.shields.io/github/stars/[你的GitHub用户名]/national_stats?style=flat-square&color=yellow)](https://github.com/[你的GitHub用户名]/national_stats/stargazers)
+[![GitHub Forks](https://img.shields.io/github/forks/[你的GitHub用户名]/national_stats?style=flat-square&color=blue)](https://github.com/[你的GitHub用户名]/national_stats/network/members)
+[![GitHub Issues](https://img.shields.io/github/issues/[你的GitHub用户名]/national_stats?style=flat-square&color=orange)](https://github.com/[你的GitHub用户名]/national_stats/issues)
+[![GitHub License](https://img.shields.io/github/license/[你的GitHub用户名]/national_stats?style=flat-square&color=green)](https://github.com/[你的GitHub用户名]/national_stats/blob/main/LICENSE)
+[![Language](https://img.shields.io/badge/language-Python%203.9+-purple?style=flat-square)](https://github.com/[你的GitHub用户名]/national_stats)
+[![Version](https://img.shields.io/github/v/release/[你的GitHub用户名]/national_stats?style=flat-square)](https://github.com/[你的GitHub用户名]/national_stats/releases)
+[![Downloads](https://img.shields.io/github/downloads/[你的GitHub用户名]/national_stats/total?style=flat-square)](https://github.com/[你的GitHub用户名]/national_stats/archive/refs/tags/latest.zip)
 
 一个功能完备的宏观经济数据分析、预测和可视化平台，专为中国宏观经济指标设计。
 
@@ -27,30 +34,30 @@
 
 ```
 national_stats/
+├── LICENSE
+├── README.md
+├── cli.py
+├── config.py
+├── module4_cli_enhancer.py
+├── requirements.txt
+├── start.py
+├── web_app_enhanced.py
 ├── core/                    # 核心模块
-│   ├── data_sources/       # 数据源管理
-│   │   ├── base.py         # 数据源基类
-│   │   └── nbs.py          # 国家统计局数据源
-│   ├── models/             # 经济模型
-│   │   ├── growth_accounting.py  # 增长核算模型
-│   │   ├── okun_law.py     # 奥肯定律
-│   │   └── phillips_curve.py     # 菲利普斯曲线
+│   ├── __init__.py
 │   ├── analyzer.py         # 统计分析器
+│   ├── big_data_processor.py  # 大数据处理器
 │   ├── cache.py            # 缓存管理
 │   ├── data_manager.py     # 数据管理器
-│   ├── database.py         # 数据库管理
-│   ├── predictor.py        # 高级预测器
+│   ├── data_sources/       # 数据源管理
+│   │   ├── database.py     # 数据库数据源
+│   │   └── [补充其他数据源文件]
 │   ├── fitter.py           # 数据拟合器
-│   ├── big_data_processor.py  # 大数据处理器
-│   ├── visualizer.py       # 可视化工具
-│   └── reporter.py         # 报告生成器
+│   ├── models/             # 经济模型
+│   ├── predictor.py        # 高级预测器
+│   ├── reporter.py         # 报告生成器
+│   └── visualizer.py       # 可视化工具
 ├── models/                 # 数据模型
 │   └── time_series.py      # 时间序列模型
-├── config.py               # 全局配置
-├── cli.py                  # 命令行接口
-├── web_app.py              # 基础Web应用
-├── web_app_enhanced.py     # 增强版Web应用
-└── requirements.txt        # 依赖包列表
 ```
 
 ## 🛠️ 安装与配置
@@ -64,7 +71,7 @@ national_stats/
 
 ```bash
 # 克隆项目
-git clone <repository-url>
+git clone https://github.com/[你的GitHub用户名]/national_stats.git
 cd national_stats
 
 # 创建虚拟环境
@@ -98,182 +105,52 @@ Config.big_data.batch_size = 100
 ## 💻 使用方法
 
 ### 1. 命令行界面
-
 ```bash
-# 获取数据
-python cli.py fetch gdp --start 2020-01 --end 2023-12
+# 基础使用示例
+python cli.py --help  # 查看命令帮助
+python cli.py analyze --indicator GDP --time-range 2010-2024  # 分析GDP指标
+python cli.py predict --indicator CPI --method ARIMA --forecast-period 12  # 预测CPI未来12期数据
 
-# 数据分析
-python cli.py analyze cpi --trend --report
-
-# 智能预测
-python cli.py predict gdp --periods 12 --method auto
-
-# 数据拟合
-python cli.py fit gdp --methods polynomial,exponential --extrapolate 6
-
-# 多指标对比
-python cli.py compare gdp cpi pmi_manufacturing --pca --report
-
-# 经济模型分析
-python cli.py model growth_accounting --capital-share 0.4
-
-# 查看可用指标
-python cli.py list-indicators --category production
+# 增强版CLI使用
+python module4_cli_enhancer.py --batch-process ./indicators_list.txt  # 批量处理指标列表
 ```
 
-### 2. Web应用
-
-#### 基础版本
+### 2. Web应用启动
 ```bash
-streamlit run web_app.py
+# 启动基础Web应用（若有）
+# python web_app.py
+
+# 启动增强版Web应用
+python web_app_enhanced.py --host 0.0.0.0 --port 8080
 ```
 
-#### 增强版本（推荐）
+### 3. 快速启动脚本
 ```bash
-streamlit run web_app_enhanced.py
+python start.py  # 一键启动（集成CLI/Web/数据同步）
 ```
 
-访问 `http://localhost:8501` 使用图形界面。
+## 📊 数据可视化与报告
+- 支持生成交互式图表（折线图、柱状图、热力图、散点图等）
+- 自动生成分析报告（PDF/HTML/Markdown格式）
+- 支持自定义报告模板，适配不同业务场景
 
-### 3. 编程接口
-
-```python
-from core import DataManager, Predictor, AdvancedFitter
-from core.big_data_processor import BigDataProcessor
-
-# 数据获取
-dm = DataManager()
-gdp_data = dm.fetch('gdp')
-
-# 智能预测
-predictor = Predictor(method='auto')
-forecast_result = predictor.forecast(gdp_data, periods=12)
-
-# 数据拟合
-fitter = AdvancedFitter()
-fit_result = fitter.fit(x_data, y_data)
-
-# 大数据分析
-processor = BigDataProcessor()
-batch_data = processor.batch_process_indicators(['gdp', 'cpi', 'ppi'])
-analysis_result = processor.process_large_dataset(
-    batch_data['successful_data'], 
-    operations=['correlation', 'clustering']
-)
-```
-
-## 📊 支持的指标体系
-
-### 生产类指标
-- 国内生产总值(GDP)及其增长率
-- 工业增加值增长率
-- 制造业PMI
-
-### 价格类指标
-- 居民消费价格指数(CPI)
-- 工业生产者价格指数(PPI)
-- 商品零售价格指数
-
-### 需求类指标
-- 固定资产投资增长率
-- 社会消费品零售总额增长率
-- 出口进口总额
-
-### 货币金融类
-- 货币供应量(M0/M1/M2)
-- 银行间同业拆借利率
-- 信贷投放数据
-
-### 就业类指标
-- 城镇调查失业率
-- 新增就业人数
-- 求职人数
-
-## 🔧 技术架构
-
-### 数据层
-- **数据源适配器**: 统一接口对接不同官方数据源
-- **智能缓存**: Redis + 本地文件系统双重缓存
-- **数据库抽象**: SQLAlchemy ORM支持多种数据库
-
-### 计算层
-- **并行处理**: ThreadPoolExecutor + ProcessPoolExecutor
-- **分布式计算**: Dask数据框 + Ray任务调度
-- **内存优化**: 分块处理 + 惰性计算
-
-### 算法层
-- **传统统计**: Statsmodels时间序列分析
-- **机器学习**: Scikit-learn + XGBoost + LightGBM
-- **深度学习**: PyTorch/TensorFlow神经网络
-- **专业模型**: Prophet + ARIMA + 自研经济模型
-
-### 应用层
-- **CLI工具**: argparse驱动的命令行界面
-- **Web界面**: Streamlit构建的交互式仪表盘
-- **API服务**: FastAPI支持的RESTful接口
-
-## 📈 性能特点
-
-### 处理能力
-- **单机性能**: 支持万级别时间序列同时处理
-- **分布式扩展**: 可扩展至集群级别的数据处理
-- **实时响应**: 关键查询毫秒级响应
-
-### 内存效率
-- **流式处理**: 大文件分块读取
-- **压缩存储**: 数据自动压缩存储
-- **智能缓存**: LRU策略优化内存使用
-
-## 🔒 安全与合规
-
-- **数据源认证**: 官方API密钥管理
-- **访问控制**: 用户权限分级管理
-- **审计日志**: 完整操作记录
-- **隐私保护**: 敏感数据脱敏处理
+## 🚀 性能优化
+- 分布式计算：基于Dask/Ray实现多节点/多核并行处理
+- 缓存策略：Redis缓存高频访问数据，文件系统缓存批量历史数据
+- 数据分片：大数据集自动分片处理，降低内存占用
 
 ## 🤝 贡献指南
-
-欢迎提交Issue和Pull Request！
-
-### 开发环境设置
-```bash
-# 安装开发依赖
-pip install -r requirements-dev.txt
-
-# 运行测试
-pytest tests/
-
-# 代码质量检查
-flake8 core/
-black core/
-```
-
-### 贡献流程
-1. Fork项目
+1. Fork 本仓库（https://github.com/[你的GitHub用户名]/national_stats/fork）
 2. 创建特性分支 (`git checkout -b feature/AmazingFeature`)
-3. 提交更改 (`git commit -m 'Add some AmazingFeature'`)
+3. 提交修改 (`git commit -m 'Add some AmazingFeature'`)
 4. 推送到分支 (`git push origin feature/AmazingFeature`)
-5. 开启Pull Request
-
-## 📄 许可证
-
-本项目采用MIT许可证 - 查看 [LICENSE](LICENSE) 文件了解详情
+5. 打开 Pull Request
 
 ## 📞 联系方式
+- 邮箱：18825407105@outlook.com
+- 项目地址：https://github.com/badhope/national_stats
+- 问题反馈：https://github.com/badhope/national_stats/issues
 
-- **项目维护者**: [Your Name]
-- **邮箱**: [your.email@example.com]
-- **项目主页**: [https://github.com/username/national_stats]
+## 📄 许可证
+本项目基于 [LICENSE](LICENSE) 协议开源。
 
-## 🙏 致谢
-
-感谢以下开源项目的贡献：
-- [Statsmodels](https://www.statsmodels.org/) - 统计建模
-- [Scikit-learn](https://scikit-learn.org/) - 机器学习
-- [Streamlit](https://streamlit.io/) - Web应用框架
-- [Dask](https://dask.org/) - 并行计算
-- [Ray](https://www.ray.io/) - 分布式系统
-
----
-*Made with ❤️ for economic research and policy analysis*
