@@ -83,15 +83,42 @@ class BaseDataSource(ABC):
                     time.sleep(self.config.retry_delay * attempt)
                 
                 # 发送请求
-                if method.upper() == 'GET':
+                method_upper = method.upper()
+                if method_upper == 'GET':
                     response = self.session.get(
                         url, 
                         timeout=self.config.timeout,
                         **kwargs
                     )
-                else:
+                elif method_upper == 'POST':
                     response = self.session.post(
                         url,
+                        timeout=self.config.timeout,
+                        **kwargs
+                    )
+                elif method_upper == 'PUT':
+                    response = self.session.put(
+                        url,
+                        timeout=self.config.timeout,
+                        **kwargs
+                    )
+                elif method_upper == 'DELETE':
+                    response = self.session.delete(
+                        url,
+                        timeout=self.config.timeout,
+                        **kwargs
+                    )
+                elif method_upper == 'PATCH':
+                    response = self.session.patch(
+                        url,
+                        timeout=self.config.timeout,
+                        **kwargs
+                    )
+                else:
+                    # 默认使用GET方法
+                    self.logger.warning(f"不支持的请求方法: {method}, 使用GET方法替代")
+                    response = self.session.get(
+                        url, 
                         timeout=self.config.timeout,
                         **kwargs
                     )

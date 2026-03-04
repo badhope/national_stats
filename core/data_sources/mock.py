@@ -49,9 +49,16 @@ class MockDataSource(BaseDataSource):
         months_diff = (end_dt.year - start_dt.year) * 12 + (end_dt.month - start_dt.month)
         num_points = max(12, months_diff + 1)  # 至少12个数据点
         
-        # 生成日期序列
-        dates = [start_dt + timedelta(days=30*i) for i in range(num_points)]
-        dates = [d.replace(day=1) for d in dates]  # 统一到每月1日
+        # 生成日期序列（准确的月份）
+        dates = []
+        current_date = start_dt
+        for i in range(num_points):
+            dates.append(current_date)
+            # 计算下一个月的第一天
+            if current_date.month == 12:
+                current_date = current_date.replace(year=current_date.year + 1, month=1, day=1)
+            else:
+                current_date = current_date.replace(month=current_date.month + 1, day=1)
         
         # 根据指标类型生成相应的数据模式
         values = self._generate_indicator_data(indicator_code, num_points)

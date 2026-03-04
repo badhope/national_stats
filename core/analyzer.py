@@ -444,7 +444,7 @@ class StatisticalAnalyzer:
 # ==================== 使用示例 ====================
 
 if __name__ == "__main__":
-    from core.data_manager import DataManager
+    from data_manager import DataManager
     
     # 初始化
     analyzer = StatisticalAnalyzer()

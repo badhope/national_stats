@@ -12,7 +12,7 @@ from statsmodels.tsa.filters.hp_filter import hpfilter
 
 # 导入基础模块
 import sys
-sys.path.append('../..')
+sys.path.insert(0, '../../')
 from config import Config
 from models.time_series import MacroTimeSeries
 

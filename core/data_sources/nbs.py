@@ -166,7 +166,17 @@ class NBSDataSource(BaseDataSource):
                 year, quarter = time_str.replace('Q', ' ').split()
                 quarter = int(quarter)
                 month = quarter * 3
-                return f"{year}-{month:02d}-01"
+                # 计算季度最后一天
+                if month == 12:
+                    # 12月的最后一天是31号
+                    return f"{year}-{month:02d}-31"
+                else:
+                    # 其他月份的最后一天是下个月的第一天减一天
+                    # 简化处理，直接返回月份的最后一天
+                    if month in [3, 5, 7, 8, 10]:
+                        return f"{year}-{month:02d}-31"
+                    else:
+                        return f"{year}-{month:02d}-30"
             elif 'A' in time_str:
                 # 年度数据: 2020A -> 2020-12-31
                 year = time_str.replace('A', '')

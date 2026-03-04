@@ -169,7 +169,7 @@ class IndicatorLibrary:
         
         # 工业生产
         IndicatorDefinition("industrial_yoy", "工业增加值同比增长率", IndicatorCategory.PRODUCTION,
-                          IndicatorFrequency.MONTHLY, "%", "nbs",                          is_coincident=True, api_endpoint="/api/industry/value_added"),
+                          IndicatorFrequency.MONTHLY, "%", "nbs", is_coincident=True, api_endpoint="/api/industry/value_added"),
         
         # 价格指数
         IndicatorDefinition("cpi", "居民消费价格指数", IndicatorCategory.PRICE,

@@ -13,7 +13,7 @@ import json
 
 # 导入配置和模型
 import sys
-sys.path.append('..')
+sys.path.insert(0, '..')
 from config import Config, PathConfig, IndicatorLibrary
 from models.time_series import MacroTimeSeries, TimeSeriesMeta
 
@@ -217,6 +217,9 @@ class DatabaseManager:
         
         # 转换为 DataFrame
         data = pd.DataFrame([dict(row) for row in rows])
+        # 设置date列为索引
+        data['date'] = pd.to_datetime(data['date'])
+        data.set_index('date', inplace=True)
         
         # 获取指标定义
         try:

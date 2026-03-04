@@ -10,7 +10,7 @@ import logging
 
 # 导入各模块
 import sys
-sys.path.append('..')
+sys.path.insert(0, '..')
 from config import Config, IndicatorLibrary, IndicatorDefinition
 from models.time_series import MacroTimeSeries, TimeSeriesMeta
 from .cache import CacheManager
