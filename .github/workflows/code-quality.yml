@@ -1,0 +1,68 @@
+name: Code Quality Check
+
+on:
+  push:
+    branches: [ main, develop ]
+    paths:
+      - '**.py'
+      - 'requirements.txt'
+  pull_request:
+    branches: [ main ]
+    paths:
+      - '**.py'
+      - 'requirements.txt'
+
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+        
+    - name: Install dependencies
+      run: |
+        pip install flake8 black isort mypy
+        
+    - name: Check code formatting with Black
+      run: |
+        black --check --diff . || true
+        
+    - name: Check import sorting with isort
+      run: |
+        isort --check-only --diff . || true
+        
+    - name: Run flake8 linting
+      run: |
+        flake8 . --max-line-length=120 --extend-ignore=E203,W503 || true
+        
+    - name: Run mypy type checking
+      run: |
+        mypy core/ models/ --ignore-missing-imports || true
+
+  completeness:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Check for required files
+      run: |
+        echo "Checking project structure..."
+        test -f requirements.txt && echo "✓ requirements.txt exists"
+        test -f README.md && echo "✓ README.md exists"
+        test -f LICENSE && echo "✓ LICENSE exists"
+        
+    - name: Verify dependencies are valid
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+        
+    - name: Validate requirements.txt
+      run: |
+        pip install pip-tools
+        pip-compile --dry-run requirements.txt || true

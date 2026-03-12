@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="宏观经济数据分析平台 - 专业的数据分析与可视化工具">
+    <meta name="keywords" content="宏观经济,数据分析,GDP,统计,可视化">
+    <meta name="author" content="National Stats Team">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="theme-color" content="#2563eb">
+    
+    <title>宏观经济数据分析平台 | National Stats</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="styles/main.css">
+    
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📊</text></svg>">
+</head>
+<body>
+    <a href="#main-content" class="skip-link">跳转到主要内容</a>
+    
+    <header class="header">
+        <div class="header__container">
+            <div class="header__brand">
+                <svg class="header__logo" viewBox="0 0 40 40" aria-hidden="true">
+                    <rect x="5" y="25" width="8" height="15" fill="currentColor" opacity="0.7"/>
+                    <rect x="16" y="15" width="8" height="25" fill="currentColor" opacity="0.85"/>
+                    <rect x="27" y="5" width="8" height="35" fill="currentColor"/>
+                </svg>
+                <div class="header__titles">
+                    <h1 class="header__title">宏观经济数据分析平台</h1>
+                    <p class="header__subtitle">National Economic Statistics Portal</p>
+                </div>
+            </div>
+            
+            <button class="header__toggle" aria-label="切换导航菜单" aria-expanded="false">
+                <span class="header__toggle-bar"></span>
+                <span class="header__toggle-bar"></span>
+                <span class="header__toggle-bar"></span>
+            </button>
+            
+            <nav class="nav" aria-label="主导航">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="#home" class="nav__link nav__link--active">首页</a>
+                    </li>
+                    <li class="nav__item nav__item--has-submenu">
+                        <a href="#data" class="nav__link" aria-expanded="false">
+                            数据中心
+                            <svg class="nav__arrow" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M7 10l5 5 5-5" fill="none" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </a>
+                        <ul class="nav__submenu">
+                            <li><a href="#gdp" class="nav__submenu-link">GDP数据</a></li>
+                            <li><a href="#cpi" class="nav__submenu-link">CPI数据</a></li>
+                            <li><a href="#employment" class="nav__submenu-link">就业数据</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#analysis" class="nav__link">分析工具</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#reports" class="nav__link">报告中心</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#about" class="nav__link">关于我们</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="breadcrumb" aria-label="面包屑导航">
+        <div class="breadcrumb__container">
+            <ol class="breadcrumb__list">
+                <li class="breadcrumb__item"><a href="#home">首页</a></li>
+                <li class="breadcrumb__item"><a href="#data">数据中心</a></li>
+                <li class="breadcrumb__item breadcrumb__item--current" aria-current="page">GDP数据分析</li>
+            </ol>
+        </div>
+    </nav>
+
+    <main id="main-content" class="main">
+        <section class="hero" id="home">
+            <div class="hero__container">
+                <div class="hero__content">
+                    <h2 class="hero__title">洞悉经济趋势<br><span>把握发展脉搏</span></h2>
+                    <p class="hero__description">
+                        基于国家统计局官方数据，提供专业的宏观经济分析、可视化展示和趋势预测服务。帮助决策者快速获取有价值的经济洞察。
+                    </p>
+                    <div class="hero__actions">
+                        <a href="#data" class="btn btn--primary btn--lg">
+                            <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zM7 7v2h14V7H7z" fill="currentColor"/>
+                            </svg>
+                            探索数据
+                        </a>
+                        <a href="#demo" class="btn btn--secondary btn--lg">
+                            <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M8 5v14l11-7z" fill="currentColor"/>
+                            </svg>
+                            查看演示
+                        </a>
+                    </div>
+                </div>
+                <div class="hero__visual">
+                    <div class="hero__chart">
+                        <div class="chart-bar" style="--height: 60%; --delay: 0s;"></div>
+                        <div class="chart-bar" style="--height: 75%; --delay: 0.1s;"></div>
+                        <div class="chart-bar" style="--height: 65%; --delay: 0.2s;"></div>
+                        <div class="chart-bar" style="--height: 80%; --delay: 0.3s;"></div>
+                        <div class="chart-bar" style="--height: 70%; --delay: 0.4s;"></div>
+                        <div class="chart-bar" style="--height: 90%; --delay: 0.5s;"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="features" id="analysis">
+            <div class="features__container">
+                <header class="features__header">
+                    <h2 class="features__title">核心功能</h2>
+                    <p class="features__subtitle">强大而专业的经济数据分析工具集</p>
+                </header>
+                
+                <div class="features__grid">
+                    <article class="feature-card">
+                        <div class="feature-card__icon">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z" fill="currentColor"/>
+                            </svg>
+                        </div>
+                        <h3 class="feature-card__title">多维数据可视化</h3>
+                        <p class="feature-card__description">
+                            支持折线图、柱状图、饼图、热力图等多种可视化形式，交互式图表让数据洞察更加直观。
+                        </p>
+                        <a href="#visualization" class="feature-card__link">了解更多 →</a>
+                    </article>
+                    
+                    <article class="feature-card">
+                        <div class="feature-card__icon">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM14 13v4h-4v-4H7l5-5 5 5h-3z" fill="currentColor"/>
+                            </svg>
+                        </div>
+                        <h3 class="feature-card__title">一键数据导出</h3>
+                        <p class="feature-card__description">
+                            支持多种格式导出：Excel、CSV、JSON、PDF报告，满足不同场景的数据使用需求。
+                        </p>
+                        <a href="#download" class="feature-card__link">下载数据 →</a>
+                    </article>
+                    
+                    <article class="feature-card">
+                        <div class="feature-card__icon">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" fill="currentColor"/>
+                            </svg>
+                        </div>
+                        <h3 class="feature-card__title">智能趋势预测</h3>
+                        <p class="feature-card__description">
+                            基于ARIMA、指数平滑等算法，提供经济指标短期预测，辅助决策分析。
+                        </p>
+                        <a href="#prediction" class="feature-card__link">查看预测 →</a>
+                    </article>
+                    
+                    <article class="feature-card">
+                        <div class="feature-card__icon">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z" fill="currentColor"/>
+                            </svg>
+                        </div>
+                        <h3 class="feature-card__title">数据安全保障</h3>
+                        <p class="feature-card__description">
+                            官方数据源授权，数据传输加密存储，保护用户隐私和数据安全。
+                        </p>
+                        <a href="#security" class="feature-card__link">安全说明 →</a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="downloads" id="download">
+            <div class="downloads__container">
+                <header class="downloads__header">
+                    <h2 class="downloads__title">资源下载</h2>
+                    <p class="downloads__subtitle">获取最新数据和分析报告</p>
+                </header>
+                
+                <div class="downloads__grid">
+                    <article class="download-card">
+                        <div class="download-card__icon">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z" fill="currentColor"/>
+                            </svg>
+                        </div>
+                        <div class="download-card__content">
+                            <h3 class="download-card__title">年度经济数据报告</h3>
+                            <p class="download-card__description">2024年度宏观经济运行情况分析报告，包含GDP、CPI、就业等核心指标。</p>
+                            <div class="download-card__meta">
+                                <span class="download-card__size">PDF • 2.4 MB</span>
+                                <span class="download-card__date">更新于 2024-12-15</span>
+                            </div>
+                        </div>
+                        <div class="download-card__action">
+                            <button class="download-btn" 
+                                    data-file="reports/annual_2024.pdf" 
+                                    data-filename="年度经济数据报告2024.pdf"
+                                    data-mode="direct"
+                                    aria-label="下载年度经济数据报告">
+                                <svg class="download-btn__icon" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z" fill="currentColor"/>
+                                </svg>
+                                <span class="download-btn__text">立即下载</span>
+                                <div class="download-btn__progress" aria-hidden="true">
+                                    <svg class="download-btn__spinner" viewBox="0 0 24 24">
+                                        <circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2" stroke-dasharray="31.4" stroke-dashoffset="10"/>
+                                    </svg>
+                                </div>
+                            </button>
+                        </div>
+                    </article>
+                    
+                    <article class="download-card">
+                        <div class="download-card__icon">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z" fill="currentColor"/>
+                            </svg>
+                        </div>
+                        <div class="download-card__content">
+                            <h3 class="download-card__title">GDP同比增长率数据集</h3>
+                            <p class="download-card__description">1990-2024年季度GDP同比增长率原始数据，适合进行深度分析和二次开发。</p>
+                            <div class="download-card__meta">
+                                <span class="download-card__size">CSV • 156 KB</span>
+                                <span class="download-card__date">更新于 2024-12-10</span>
+                            </div>
+                        </div>
+                        <div class="download-card__action">
+                            <button class="download-btn download-btn--secondary" 
+                                    data-file="data/gdp_yoy_1990_2024.csv" 
+                                    data-filename="GDP同比增长率数据.csv"
+                                    data-mode="new-window"
+                                    aria-label="下载GDP数据">
+                                <svg class="download-btn__icon" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z" fill="currentColor"/>
+                                </svg>
+                                <span class="download-btn__text">新窗口打开</span>
+                                <div class="download-btn__progress" aria-hidden="true">
+                                    <svg class="download-btn__spinner" viewBox="0 0 24 24">
+                                        <circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2" stroke-dasharray="31.4" stroke-dashoffset="10"/>
+                                    </svg>
+                                </div>
+                            </button>
+                        </div>
+                    </article>
+                    
+                    <article class="download-card">
+                        <div class="download-card__icon">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z" fill="currentColor"/>
+                            </svg>
+                        </div>
+                        <div class="download-card__content">
+                            <h3 class="download-card__title">CPI分类指数数据</h3>
+                            <p class="download-card__description">居民消费价格分类指数月度数据，包含食品、居住、教育等8大类指数。</p>
+                            <div class="download-card__meta">
+                                <span class="download-card__size">Excel • 328 KB</span>
+                                <span class="download-card__date">更新于 2024-11-30</span>
+                            </div>
+                        </div>
+                        <div class="download-card__action">
+                            <button class="download-btn" 
+                                    data-file="data/cpi_index.xlsx" 
+                                    data-filename="CPI分类指数数据.xlsx"
+                                    data-mode="direct"
+                                    aria-label="下载CPI数据">
+                                <svg class="download-btn__icon" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z" fill="currentColor"/>
+                                </svg>
+                                <span class="download-btn__text">立即下载</span>
+                                <div class="download-btn__progress" aria-hidden="true">
+                                    <svg class="download-btn__spinner" viewBox="0 0 24 24">
+                                        <circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2" stroke-dasharray="31.4" stroke-dashoffset="10"/>
+                                    </svg>
+                                </div>
+                            </button>
+                        </div>
+                    </article>
+                    
+                    <article class="download-card">
+                        <div class="download-card__icon">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z" fill="currentColor"/>
+                            </svg>
+                        </div>
+                        <div class="download-card__content">
+                            <h3 class="download-card__title">就业形势分析报告</h3>
+                            <p class="download-card__description">城镇新增就业、失业率、劳动力市场供需分析报告。</p>
+                            <div class="download-card__meta">
+                                <span class="download-card__size">PDF • 1.8 MB</span>
+                                <span class="download-card__date">更新于 2024-11-20</span>
+                            </div>
+                        </div>
+                        <div class="download-card__action">
+                            <button class="download-btn" 
+                                    data-file="reports/employment_2024.pdf" 
+                                    data-filename="就业形势分析报告2024.pdf"
+                                    data-mode="direct"
+                                    aria-label="下载就业报告">
+                                <svg class="download-btn__icon" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z" fill="currentColor"/>
+                                </svg>
+                                <span class="download-btn__text">立即下载</span>
+                                <div class="download-btn__progress" aria-hidden="true">
+                                    <svg class="download-btn__spinner" viewBox="0 0 24 24">
+                                        <circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2" stroke-dasharray="31.4" stroke-dashoffset="10"/>
+                                    </svg>
+                                </div>
+                            </button>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="about" id="about">
+            <div class="about__container">
+                <div class="about__content">
+                    <h2 class="about__title">关于我们</h2>
+                    <p class="about__description">
+                        宏观经济数据分析平台是由专业团队打造的权威数据服务平台。我们致力于为政府机构、研究学者和企业用户提供高质量的经济数据和分析工具。
+                    </p>
+                    <div class="about__stats">
+                        <div class="stat">
+                            <span class="stat__value">30+</span>
+                            <span class="stat__label">年历史数据</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat__value">500+</span>
+                            <span class="stat__label">经济指标</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat__value">10万+</span>
+                            <span class="stat__label">活跃用户</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer__container">
+            <div class="footer__main">
+                <div class="footer__brand">
+                    <svg class="footer__logo" viewBox="0 0 40 40" aria-hidden="true">
+                        <rect x="5" y="25" width="8" height="15" fill="currentColor" opacity="0.7"/>
+                        <rect x="16" y="15" width="8" height="25" fill="currentColor" opacity="0.85"/>
+                        <rect x="27" y="5" width="8" height="35" fill="currentColor"/>
+                    </svg>
+                    <span class="footer__name">National Stats</span>
+                </div>
+                <nav class="footer__nav" aria-label="页脚导航">
+                    <div class="footer__section">
+                        <h4 class="footer__heading">产品服务</h4>
+                        <ul class="footer__list">
+                            <li><a href="#data">数据中心</a></li>
+                            <li><a href="#analysis">分析工具</a></li>
+                            <li><a href="#reports">报告中心</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer__section">
+                        <h4 class="footer__heading">技术支持</h4>
+                        <ul class="footer__list">
+                            <li><a href="#api">API文档</a></li>
+                            <li><a href="#sdk">SDK下载</a></li>
+                            <li><a href="#faq">常见问题</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer__section">
+                        <h4 class="footer__heading">关于我们</h4>
+                        <ul class="footer__list">
+                            <li><a href="#company">公司介绍</a></li>
+                            <li><a href="#contact">联系方式</a></li>
+                            <li><a href="#cooperation">合作机会</a></li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+            <div class="footer__bottom">
+                <p class="footer__copyright">
+                    © 2024 宏观经济数据分析平台. All rights reserved.
+                </p>
+                <div class="footer__links">
+                    <a href="#privacy">隐私政策</a>
+                    <a href="#terms">服务条款</a>
+                    <a href="#sitemap">网站地图</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <button class="back-to-top" aria-label="返回顶部" aria-hidden="true">
+        <svg viewBox="0 0 24 24">
+            <path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z" fill="currentColor"/>
+        </svg>
+    </button>
+
+    <div class="toast-container" aria-live="polite" aria-atomic="true"></div>
+
+    <script src="scripts/main.js" type="module"></script>
+</body>
+</html>
