@@ -1,4 +1,49 @@
-class Navigation {
+(function() {
+    'use strict';
+
+    const Utils = {
+        sanitize(str) {
+            const div = document.createElement('div');
+            div.textContent = str;
+            return div.innerHTML;
+        },
+        
+        escapeHtml(str) {
+            const map = {
+                '&': '&amp;',
+                '<': '&lt;',
+                '>': '&gt;',
+                '"': '&quot;',
+                "'": '&#039;'
+            };
+            return str.replace(/[&<>"']/g, m => map[m]);
+        },
+        
+        debounce(func, wait) {
+            let timeout;
+            return function executedFunction(...args) {
+                const later = () => {
+                    clearTimeout(timeout);
+                    func(...args);
+                };
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+            };
+        },
+        
+        throttle(func, limit) {
+            let inThrottle;
+            return function(...args) {
+                if (!inThrottle) {
+                    func.apply(this, args);
+                    inThrottle = true;
+                    setTimeout(() => inThrottle = false, limit);
+                }
+            };
+        }
+    };
+
+    class Navigation {
     constructor() {
         this.header = document.querySelector('.header');
         this.navToggle = document.querySelector('.header__toggle');
@@ -616,22 +661,49 @@ class ContactForm {
             submitBtn.setAttribute('aria-busy', 'true');
         }
         
-        await this.simulateSubmit(formData);
-        
-        if (submitBtn) {
-            submitBtn.disabled = false;
-            submitBtn.innerHTML = originalText;
-            submitBtn.setAttribute('aria-busy', 'false');
+        try {
+            await this.simulateSubmit(formData);
+            
+            if (submitBtn) {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = originalText;
+                submitBtn.setAttribute('aria-busy', 'false');
+            }
+            
+            this.form.reset();
+            this.showSuccessMessage();
+        } catch (error) {
+            if (submitBtn) {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = originalText;
+                submitBtn.setAttribute('aria-busy', 'false');
+            }
+            
+            this.showToast(error.message || '提交失败，请稍后重试', 'error');
         }
-        
-        this.form.reset();
-        this.showSuccessMessage();
     }
     
     simulateSubmit(data) {
-        return new Promise((resolve) => {
-            console.log('Form submitted:', data);
-            setTimeout(resolve, 1500);
+        const sanitizedData = {
+            name: Utils.sanitize(data.name || ''),
+            email: Utils.sanitize(data.email || ''),
+            subject: Utils.sanitize(data.subject || ''),
+            message: Utils.sanitize(data.message || '')
+        };
+        
+        return new Promise((resolve, reject) => {
+            console.log('Form submitted:', sanitizedData);
+            
+            setTimeout(() => {
+                if (Math.random() > 0.95) {
+                    reject(new Error('网络错误，请稍后重试'));
+                } else {
+                    resolve(sanitizedData);
+                }
+            }, 1500);
+        }).catch(error => {
+            console.error('Submission error:', error);
+            throw error;
         });
     }
     
@@ -827,6 +899,12 @@ class Accessibility {
 
 class Performance {
     constructor() {
+        this.metrics = {
+            fcp: null,
+            lcp: null,
+            inp: null,
+            cls: null
+        };
         this.init();
     }
     
@@ -837,20 +915,61 @@ class Performance {
     }
     
     measureCoreWebVitals() {
-        if ('PerformanceObserver' in window) {
-            try {
-                const observer = new PerformanceObserver((list) => {
-                    const entries = list.getEntries();
-                    entries.forEach(entry => {
-                        if (entry.entryType === 'paint') {
-                            console.log(`${entry.name}: ${entry.startTime.toFixed(2)}ms`);
-                        }
-                    });
+        if (!('PerformanceObserver' in window)) return;
+        
+        try {
+            const paintObserver = new PerformanceObserver((list) => {
+                list.getEntries().forEach(entry => {
+                    if (entry.name === 'first-contentful-paint') {
+                        this.metrics.fcp = entry.startTime;
+                        console.log(`FCP: ${entry.startTime.toFixed(2)}ms`);
+                    }
                 });
-                observer.observe({ type: 'paint', buffered: true });
-            } catch (e) {
-                console.log('Performance measurement not supported');
-            }
+            });
+            paintObserver.observe({ type: 'paint', buffered: true });
+            
+            const lcpObserver = new PerformanceObserver((list) => {
+                const entries = list.getEntries();
+                const lastEntry = entries[entries.length - 1];
+                this.metrics.lcp = lastEntry.startTime;
+                console.log(`LCP: ${lastEntry.startTime.toFixed(2)}ms`);
+            });
+            lcpObserver.observe({ type: 'largest-contentful-paint', buffered: true });
+            
+            const clsObserver = new PerformanceObserver((list) => {
+                let clsValue = 0;
+                list.getEntries().forEach(entry => {
+                    const layoutEntry = entry;
+                    if (!layoutEntry.hadRecentInput) {
+                        clsValue += layoutEntry.value || 0;
+                    }
+                });
+                this.metrics.cls = clsValue;
+                console.log(`CLS: ${clsValue.toFixed(4)}`);
+            });
+            clsObserver.observe({ type: 'layout-shift', buffered: true });
+            
+            let inpObserver;
+            const inpEntries = [];
+            inpObserver = new PerformanceObserver((list) => {
+                list.getEntries().forEach(entry => {
+                    if (entry.interactionId) {
+                        inpEntries.push(entry);
+                    }
+                });
+                
+                if (inpEntries.length > 0) {
+                    const maxEntry = inpEntries.reduce((max, entry) => 
+                        entry.duration > max.duration ? entry : max
+                    );
+                    this.metrics.inp = maxEntry.duration;
+                    console.log(`INP: ${maxEntry.duration.toFixed(2)}ms`);
+                }
+            });
+            inpObserver.observe({ type: 'event', buffered: true, durationThreshold: 16 });
+            
+        } catch (e) {
+            console.log('Performance measurement error:', e.message);
         }
     }
     
@@ -907,3 +1026,17 @@ document.addEventListener('DOMContentLoaded', () => {
 if (module.hot) {
     module.hot.accept();
 }
+
+window.NationalStats = {
+    Utils,
+    Navigation,
+    DataTabs,
+    DownloadManager,
+    ContactForm,
+    Modal,
+    SmoothScroll,
+    Accessibility,
+    Performance
+};
+
+})();
