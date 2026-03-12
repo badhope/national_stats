@@ -1021,6 +1021,29 @@ document.addEventListener('DOMContentLoaded', () => {
     new SmoothScroll();
     new Accessibility();
     new Performance();
+    
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('/scripts/sw.js')
+                .then((registration) => {
+                    console.log('SW registered:', registration.scope);
+                    
+                    registration.addEventListener('updatefound', () => {
+                        const newWorker = registration.installing;
+                        newWorker.addEventListener('statechange', () => {
+                            if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                                if (confirm('有新版本可用，是否刷新页面？')) {
+                                    window.location.reload();
+                                }
+                            }
+                        });
+                    });
+                })
+                .catch((error) => {
+                    console.log('SW registration failed:', error);
+                });
+        });
+    }
 });
 
 if (module.hot) {
