@@ -12,7 +12,7 @@ import logging
 import sys
 sys.path.insert(0, '..')
 from config import Config, IndicatorLibrary, IndicatorDefinition
-from models.time_series import MacroTimeSeries, TimeSeriesMeta
+from .models.time_series import MacroTimeSeries, TimeSeriesMeta
 from .cache import CacheManager
 from .database import DatabaseManager
 from .data_sources.nbs import NBSDataSource
