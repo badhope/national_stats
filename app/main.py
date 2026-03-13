@@ -162,9 +162,10 @@ class EconomicDataAnalyzer:
         
     def _analyze_employment(self, data):
         """分析就业数据"""
+        change = int(round(self._calc_change(data['total'])))
         return {
             "trend": "总体稳定",
-            "growth": f"新增{self._calc_change(data['total'])}万人",
+            "growth": f"新增{change}万人",
             "prediction": "2025年失业率预计4.0%以下"
         }
         
