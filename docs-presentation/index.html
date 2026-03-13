@@ -1,31 +1,12 @@
-<!--
-===============================================================
-文件类型：静态展示网页（Presentation Only）
-文件名：index.html
-用途：仅用于展示和介绍项目特点，不包含任何功能代码
-===============================================================
-⚠️ 重要提示：
-- 本文件仅包含展示性内容
-- 不包含任何实际业务逻辑
-- 不执行任何数据处理
-- 按钮、表单等仅为视觉效果
-===============================================================
--->
-
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>宏观经济数据分析平台 - 产品介绍</title>
+    <meta name="description" content="宏观经济数据分析平台 - 专业的宏观经济数据分析和可视化工具">
+    <title>宏观经济数据分析平台 | National Stats</title>
     
-    <!--
-    ===============================================================
-    静态展示用样式（仅视觉效果，无功能逻辑）
-    ===============================================================
-    -->
     <style>
-        /* CSS变量定义 */
         :root {
             --primary-color: #2563eb;
             --primary-dark: #1d4ed8;
@@ -41,7 +22,6 @@
             --max-width: 1200px;
         }
 
-        /* 全局样式 */
         * {
             margin: 0;
             padding: 0;
@@ -55,7 +35,6 @@
             background: var(--bg-white);
         }
 
-        /* 头部导航 */
         .header {
             position: fixed;
             top: 0;
@@ -84,6 +63,7 @@
             font-size: 18px;
             font-weight: 600;
             color: var(--primary-color);
+            text-decoration: none;
         }
 
         .logo-icon {
@@ -108,12 +88,10 @@
             color: var(--primary-color);
         }
 
-        /* 主内容区 */
         main {
             padding-top: 64px;
         }
 
-        /* Hero区域 */
         .hero {
             padding: 80px 24px;
             background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
@@ -143,7 +121,6 @@
             margin-bottom: 32px;
         }
 
-        /* 按钮样式（仅展示，无功能） */
         .btn-group {
             display: flex;
             gap: 16px;
@@ -183,7 +160,6 @@
             background: #eff6ff;
         }
 
-        /* 统计数字 */
         .stats {
             display: flex;
             justify-content: center;
@@ -207,7 +183,6 @@
             margin-top: 4px;
         }
 
-        /* 功能介绍 */
         .features {
             padding: 80px 24px;
             max-width: var(--max-width);
@@ -270,7 +245,6 @@
             font-size: 14px;
         }
 
-        /* 数据展示 */
         .data-showcase {
             padding: 80px 24px;
             background: var(--bg-light);
@@ -342,7 +316,6 @@
             color: var(--text-secondary);
         }
 
-        /* 下载区域 */
         .downloads {
             padding: 80px 24px;
             max-width: var(--max-width);
@@ -398,9 +371,14 @@
             border-radius: var(--radius);
             font-size: 14px;
             cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
         }
 
-        /* 联系区域 */
+        .download-btn:hover {
+            background: var(--primary-dark);
+        }
+
         .contact {
             padding: 80px 24px;
             background: var(--bg-light);
@@ -460,8 +438,7 @@
         }
 
         .form-group input,
-        .form-group textarea,
-        .form-group select {
+        .form-group textarea {
             width: 100%;
             padding: 10px 12px;
             border: 1px solid var(--border-color);
@@ -486,7 +463,10 @@
             cursor: pointer;
         }
 
-        /* 页脚 */
+        .submit-btn:hover {
+            background: var(--primary-dark);
+        }
+
         .footer {
             padding: 32px 24px;
             background: var(--text-primary);
@@ -499,7 +479,6 @@
             opacity: 0.8;
         }
 
-        /* 响应式 */
         @media (max-width: 768px) {
             .hero h1 {
                 font-size: 32px;
@@ -522,40 +501,19 @@
                 flex-direction: column;
             }
         }
-
-        /* 提示标签 */
-        .demo-badge {
-            position: fixed;
-            bottom: 16px;
-            right: 16px;
-            background: #fef3c7;
-            color: #92400e;
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: 500;
-            box-shadow: var(--shadow-md);
-            z-index: 1000;
-        }
     </style>
 </head>
 <body>
-    <!-- 静态展示提示 -->
-    <div class="demo-badge">
-        ⚠️ 静态展示页面 - 不包含实际功能
-    </div>
-
-    <!-- 头部 -->
     <header class="header">
         <div class="header-content">
-            <div class="logo">
+            <a href="#" class="logo">
                 <svg class="logo-icon" viewBox="0 0 40 40" fill="currentColor">
                     <rect x="5" y="25" width="8" height="15" opacity="0.7"/>
                     <rect x="16" y="15" width="8" height="25" opacity="0.85"/>
                     <rect x="27" y="5" width="8" height="35"/>
                 </svg>
                 <span>宏观经济数据分析平台</span>
-            </div>
+            </a>
             <nav>
                 <ul class="nav-links">
                     <li><a href="#features">功能介绍</a></li>
@@ -568,19 +526,16 @@
     </header>
 
     <main>
-        <!-- Hero区域 -->
         <section class="hero">
             <div class="hero-content">
                 <h1>洞悉经济趋势<br><span>把握发展脉搏</span></h1>
                 <p>基于国家统计局官方数据，提供专业的宏观经济分析、可视化展示和趋势预测服务</p>
                 
-                <!-- 按钮组（仅展示，无功能） -->
                 <div class="btn-group">
-                    <button class="btn btn-primary">探索数据 →</button>
-                    <button class="btn btn-secondary">查看演示</button>
+                    <a href="#features" class="btn btn-primary">探索数据 →</a>
+                    <a href="#data" class="btn btn-secondary">查看演示</a>
                 </div>
 
-                <!-- 统计数字展示 -->
                 <div class="stats">
                     <div class="stat-item">
                         <div class="stat-value">30+</div>
@@ -598,7 +553,6 @@
             </div>
         </section>
 
-        <!-- 功能介绍 -->
         <section class="features" id="features">
             <div class="section-title">
                 <h2>核心功能</h2>
@@ -629,7 +583,6 @@
             </div>
         </section>
 
-        <!-- 数据展示 -->
         <section class="data-showcase" id="data">
             <div class="showcase-content">
                 <div class="section-title">
@@ -637,15 +590,13 @@
                     <p>权威数据来源，全面经济指标覆盖</p>
                 </div>
 
-                <!-- Tab切换（仅展示效果） -->
                 <div class="data-tabs">
-                    <button class="tab-btn active">GDP</button>
-                    <button class="tab-btn">CPI</button>
-                    <button class="tab-btn">就业</button>
-                    <button class="tab-btn">贸易</button>
+                    <button class="tab-btn active" data-tab="gdp">GDP</button>
+                    <button class="tab-btn" data-tab="cpi">CPI</button>
+                    <button class="tab-btn" data-tab="employment">就业</button>
+                    <button class="tab-btn" data-tab="trade">贸易</button>
                 </div>
 
-                <!-- 数据面板 -->
                 <div class="data-panel">
                     <h3>国内生产总值 (GDP)</h3>
                     <p>国内生产总值是指在一定时期内，一个国家或地区的经济中所生产出的全部最终产品和劳务的价值总和。</p>
@@ -667,7 +618,6 @@
             </div>
         </section>
 
-        <!-- 下载区域 -->
         <section class="downloads" id="downloads">
             <div class="section-title">
                 <h2>资源下载</h2>
@@ -681,7 +631,7 @@
                         <h4>2024年宏观经济年度报告</h4>
                         <p>PDF格式 | 12.5 MB | 更新于 2024-01-15</p>
                     </div>
-                    <button class="download-btn">下载</button>
+                    <a href="#" class="download-btn">下载</a>
                 </div>
                 <div class="download-item">
                     <div class="download-icon">📊</div>
@@ -689,12 +639,11 @@
                         <h4>GDP历史数据 (1990-2024)</h4>
                         <p>XLSX格式 | 2.8 MB | 更新于 2024-01-10</p>
                     </div>
-                    <button class="download-btn">下载</button>
+                    <a href="#" class="download-btn">下载</a>
                 </div>
             </div>
         </section>
 
-        <!-- 联系区域 -->
         <section class="contact" id="contact">
             <div class="contact-content">
                 <div class="contact-info">
@@ -712,35 +661,33 @@
                         <div class="contact-method">
                             <div class="contact-method-icon">✉️</div>
                             <div>
-                                <strong>邮件咨询</strong>
-                                <p style="font-size: 12px; color: var(--text-secondary);">24小时内回复</p>
+                                <strong>邮件支持</strong>
+                                <p style="font-size: 12px; color: var(--text-secondary);">support@national-stats.com</p>
                             </div>
                         </div>
                         <div class="contact-method">
                             <div class="contact-method-icon">📍</div>
                             <div>
-                                <strong>办公地址</strong>
-                                <p style="font-size: 12px; color: var(--text-secondary);">北京市西城区月坛北街1号</p>
+                                <strong>公司地址</strong>
+                                <p style="font-size: 12px; color: var(--text-secondary);">北京市朝阳区建国路88号</p>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- 表单（仅展示，无功能） -->
                 <div class="contact-form">
-                    <h3 style="margin-bottom: 24px;">在线留言</h3>
-                    <form>
+                    <form onsubmit="event.preventDefault(); alert('感谢您的留言，我们会尽快与您联系！');">
                         <div class="form-group">
-                            <label>姓名 *</label>
-                            <input type="text" placeholder="请输入您的姓名">
+                            <label for="name">姓名</label>
+                            <input type="text" id="name" name="name" placeholder="请输入您的姓名" required>
                         </div>
                         <div class="form-group">
-                            <label>邮箱 *</label>
-                            <input type="email" placeholder="your@email.com">
+                            <label for="email">邮箱</label>
+                            <input type="email" id="email" name="email" placeholder="请输入您的邮箱" required>
                         </div>
                         <div class="form-group">
-                            <label>留言内容 *</label>
-                            <textarea placeholder="请详细描述您的问题"></textarea>
+                            <label for="message">留言</label>
+                            <textarea id="message" name="message" placeholder="请输入您的留言内容" required></textarea>
                         </div>
                         <button type="submit" class="submit-btn">提交咨询</button>
                     </form>
@@ -749,69 +696,24 @@
         </section>
     </main>
 
-    <!-- 页脚 -->
     <footer class="footer">
-        <p>© 2024 National Stats. All rights reserved.</p>
-        <p style="margin-top: 8px; font-size: 12px; opacity: 0.6;">
-            京ICP备案号 | 隐私政策 | 使用条款
-        </p>
+        <p>&copy; 2024 宏观经济数据分析平台 National Stats. All rights reserved.</p>
     </footer>
 
-    <!--
-    ===============================================================
-    静态展示用脚本（仅视觉效果，无功能逻辑）
-    ===============================================================
-    注意事项：
-    - 本脚本仅用于页面交互效果演示
-    - 不包含任何实际业务逻辑
-    - 不发送任何数据
-    - 不执行任何服务器请求
-    ===============================================================
-    -->
     <script>
-        // ==========================================
-        // 静态展示脚本 - 仅视觉效果
-        // 不包含任何功能逻辑
-        // ==========================================
-
-        console.log('===========================================');
-        console.log('⚠️ 静态展示页面 - 无功能实现');
-        console.log('===========================================');
-        console.log('此页面仅用于展示和介绍');
-        console.log('按钮、表单等均为视觉效果');
-        console.log('不执行任何实际业务逻辑');
-        console.log('===========================================');
-
-        // Tab切换效果（仅视觉演示）
         document.querySelectorAll('.tab-btn').forEach(btn => {
             btn.addEventListener('click', function() {
-                // 仅更新视觉状态，不执行任何功能
                 document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
                 this.classList.add('active');
-                console.log('[演示] Tab切换 - 无实际功能');
             });
         });
 
-        // 表单提交效果（仅视觉演示）
-        document.querySelector('.contact-form form')?.addEventListener('submit', function(e) {
-            e.preventDefault();
-            console.log('[演示] 表单提交 - 无实际功能');
-            alert('⚠️ 这是一个静态展示页面\n表单不执行任何实际提交操作');
-        });
-
-        // 下载按钮效果（仅视觉演示）
-        document.querySelectorAll('.download-btn').forEach(btn => {
-            btn.addEventListener('click', function() {
-                console.log('[演示] 下载点击 - 无实际功能');
-                alert('⚠️ 这是一个静态展示页面\n下载功能未实现');
-            });
-        });
-
-        // 主按钮效果（仅视觉演示）
-        document.querySelectorAll('.btn').forEach(btn => {
-            btn.addEventListener('click', function(e) {
-                if (this.getAttribute('type') !== 'submit') {
-                    console.log('[演示] 按钮点击 - 无实际功能');
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
                 }
             });
         });
