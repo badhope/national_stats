@@ -1,0 +1,82 @@
+# ============================================================
+# 功能程序依赖文件
+# 文件名：requirements.txt
+# ============================================================
+# 
+# 用途：宏观经济数据分析程序所需Python依赖包
+# 
+# 安装命令：pip install -r requirements.txt
+# 
+# ⚠️ 注意：
+# - 本文件属于功能程序包 (app/)
+# - 与静态展示网页 (docs-presentation/) 完全分离
+# ============================================================
+
+# 数据处理
+numpy>=1.24.0
+pandas>=2.0.0
+
+# 数据可视化
+matplotlib>=3.7.0
+seaborn>=0.12.0
+plotly>=5.14.0
+
+# 科学计算
+scipy>=1.10.0
+scikit-learn>=1.3.0
+
+# 统计建模
+statsmodels>=0.14.0
+pmdarima>=2.0.0
+
+# 数据获取
+requests>=2.31.0
+beautifulsoup4>=4.12.0
+selenium>=4.12.0
+
+# 数据库
+sqlalchemy>=2.0.0
+pymysql>=1.1.0
+
+# 缓存
+redis>=4.5.0
+diskcache>=5.6.0
+
+# 报告生成
+jinja2>=3.1.0
+weasyprint>=59.0
+
+# 命令行
+click>=8.1.0
+tqdm>=4.65.0
+
+# 工具
+python-dotenv>=1.0.0
+pyyaml>=6.0.0
+python-dateutil>=2.8.0
+
+# Web框架（可选）
+flask>=2.3.0
+fastapi>=0.100.0
+uvicorn>=0.23.0
+
+# 异步处理
+aiohttp>=3.8.0
+asyncio>=3.4.3
+
+# 调试
+ipython>=8.12.0
+pytest>=7.4.0
+
+# ============================================================
+# 安装说明
+# ============================================================
+# 完整安装：
+#   pip install -r requirements.txt
+#
+# 最小安装（仅核心功能）：
+#   pip install numpy pandas matplotlib scipy
+#
+# 开发安装：
+#   pip install -r requirements.txt pytest ipython
+# ============================================================
