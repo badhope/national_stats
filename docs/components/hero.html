@@ -1,0 +1,69 @@
+<!-- 
+  Hero Section Component
+  页面首屏英雄区域，展示核心价值主张和关键统计数据
+  
+  @usage: 放在 <main> 标签内的第一个 <section>
+  @features: 响应式布局、动画图表、统计数据展示
+-->
+
+<section class="hero" id="home" aria-labelledby="hero-title" data-component="hero">
+    <div class="hero__container">
+        <div class="hero__content">
+            <!-- 主标题 -->
+            <h2 class="hero__title" id="hero-title">
+                洞悉经济趋势
+                <span class="hero__title-highlight">把握发展脉搏</span>
+            </h2>
+            
+            <!-- 描述文本 -->
+            <p class="hero__description">
+                基于国家统计局官方数据，提供专业的宏观经济分析、可视化展示和趋势预测服务。
+                帮助政府机构、研究学者和企业用户快速获取有价值的经济洞察，辅助科学决策。
+            </p>
+            
+            <!-- 行动按钮组 -->
+            <div class="hero__actions">
+                <a href="#data" class="btn btn--primary btn--lg" role="button">
+                    <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z" fill="currentColor"/>
+                    </svg>
+                    探索数据
+                </a>
+                <a href="#demo" class="btn btn--secondary btn--lg" role="button" data-modal-trigger="demo-modal">
+                    <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M8 5v14l11-7z" fill="currentColor"/>
+                    </svg>
+                    查看演示
+                </a>
+            </div>
+            
+            <!-- 关键统计数据 -->
+            <div class="hero__stats" role="list" aria-label="关键统计数据">
+                <div class="hero-stat" role="listitem">
+                    <span class="hero-stat__value" aria-label="30 年以上">30+</span>
+                    <span class="hero-stat__label">年历史数据</span>
+                </div>
+                <div class="hero-stat" role="listitem">
+                    <span class="hero-stat__value" aria-label="500 个以上">500+</span>
+                    <span class="hero-stat__label">经济指标</span>
+                </div>
+                <div class="hero-stat" role="listitem">
+                    <span class="hero-stat__value" aria-label="99.9 个百分点">99.9%</span>
+                    <span class="hero-stat__label">数据准确率</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 视觉图表区域 -->
+        <div class="hero__visual" aria-hidden="true">
+            <div class="hero__chart" role="img" aria-label="数据增长趋势图表">
+                <div class="chart-bar" style="--height: 60%; --delay: 0s;"></div>
+                <div class="chart-bar" style="--height: 75%; --delay: 0.1s;"></div>
+                <div class="chart-bar" style="--height: 65%; --delay: 0.2s;"></div>
+                <div class="chart-bar" style="--height: 80%; --delay: 0.3s;"></div>
+                <div class="chart-bar" style="--height: 70%; --delay: 0.4s;"></div>
+                <div class="chart-bar" style="--height: 90%; --delay: 0.5s;"></div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,127 @@
+<!-- 
+  Downloads Section Component
+  资源下载区域，提供数据报告和分析文档下载
+  
+  @usage: 放在 Data Showcase 之后
+  @features: 文件列表、格式标识、下载次数统计
+-->
+
+<section class="downloads" id="reports" aria-labelledby="downloads-title" data-component="downloads">
+    <div class="downloads__container">
+        <!-- 区域标题 -->
+        <header class="downloads__header">
+            <h2 class="downloads__title" id="downloads-title">资源下载</h2>
+            <p class="downloads__subtitle">获取最新数据和分析报告</p>
+        </header>
+        
+        <!-- 下载分类筛选 -->
+        <div class="downloads__filters" role="group" aria-label="下载分类筛选">
+            <button class="downloads__filter downloads__filter--active" data-filter="all" type="button">
+                全部
+            </button>
+            <button class="downloads__filter" data-filter="report" type="button">
+                分析报告
+            </button>
+            <button class="downloads__filter" data-filter="dataset" type="button">
+                数据集
+            </button>
+            <button class="downloads__filter" data-filter="tool" type="button">
+                工具软件
+            </button>
+        </div>
+        
+        <!-- 下载列表 -->
+        <div class="downloads__list" role="list">
+            <!-- 下载项 1 -->
+            <article class="download-item" role="listitem" data-category="report">
+                <div class="download-item__icon">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z" fill="currentColor"/>
+                    </svg>
+                </div>
+                <div class="download-item__content">
+                    <h3 class="download-item__title">2024 年宏观经济年度报告</h3>
+                    <p class="download-item__description">
+                        全面分析 2024 年宏观经济运行态势，包括 GDP、CPI、就业、贸易等核心指标的深度解读和 2025 年展望。
+                    </p>
+                    <div class="download-item__meta">
+                        <span class="download-item__format" title="PDF 格式">PDF</span>
+                        <span class="download-item__size">12.5 MB</span>
+                        <span class="download-item__downloads" title="下载次数">📥 1,234 次</span>
+                        <time class="download-item__date" datetime="2024-01-15">2024-01-15</time>
+                    </div>
+                </div>
+                <a href="/downloads/2024-annual-report.pdf" class="download-item__btn btn btn--primary" download>
+                    <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z" fill="currentColor"/>
+                    </svg>
+                    下载
+                </a>
+            </article>
+            
+            <!-- 下载项 2 -->
+            <article class="download-item" role="listitem" data-category="dataset">
+                <div class="download-item__icon">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z" fill="currentColor"/>
+                    </svg>
+                </div>
+                <div class="download-item__content">
+                    <h3 class="download-item__title">GDP 历史数据 (1990-2024)</h3>
+                    <p class="download-item__description">
+                        包含全国及各省份 GDP 总量、增长率、人均 GDP 等完整历史数据，支持 Excel 和 CSV 格式。
+                    </p>
+                    <div class="download-item__meta">
+                        <span class="download-item__format" title="Excel 格式">XLSX</span>
+                        <span class="download-item__size">8.2 MB</span>
+                        <span class="download-item__downloads" title="下载次数">📥 2,567 次</span>
+                        <time class="download-item__date" datetime="2024-01-10">2024-01-10</time>
+                    </div>
+                </div>
+                <a href="/downloads/gdp-historical-data.xlsx" class="download-item__btn btn btn--primary" download>
+                    <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z" fill="currentColor"/>
+                    </svg>
+                    下载
+                </a>
+            </article>
+            
+            <!-- 下载项 3 -->
+            <article class="download-item" role="listitem" data-category="tool">
+                <div class="download-item__icon">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z" fill="currentColor"/>
+                    </svg>
+                </div>
+                <div class="download-item__content">
+                    <h3 class="download-item__title">数据分析工具包 v2.0</h3>
+                    <p class="download-item__description">
+                        集成常用统计分析工具，支持数据清洗、转换、建模、可视化等功能，适用于 Windows/Mac/Linux。
+                    </p>
+                    <div class="download-item__meta">
+                        <span class="download-item__format" title="压缩包">ZIP</span>
+                        <span class="download-item__size">45.8 MB</span>
+                        <span class="download-item__downloads" title="下载次数">📥 892 次</span>
+                        <time class="download-item__date" datetime="2024-01-05">2024-01-05</time>
+                    </div>
+                </div>
+                <a href="/downloads/analysis-toolkit-v2.zip" class="download-item__btn btn btn--primary" download>
+                    <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z" fill="currentColor"/>
+                    </svg>
+                    下载
+                </a>
+            </article>
+        </div>
+        
+        <!-- 加载更多 -->
+        <div class="downloads__action">
+            <button class="btn btn--secondary btn--lg" type="button" id="load-more-downloads">
+                加载更多资源
+                <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z" fill="currentColor"/>
+                </svg>
+            </button>
+        </div>
+    </div>
+</section>
