@@ -911,7 +911,6 @@ class Performance {
     init() {
         this.measureCoreWebVitals();
         this.lazyLoadImages();
-        this.preloadCriticalResources();
     }
     
     measureCoreWebVitals() {
@@ -998,17 +997,6 @@ class Performance {
                 imageObserver.observe(img);
             });
         }
-    }
-    
-    preloadCriticalResources() {
-        const criticalFonts = ['https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap'];
-        criticalFonts.forEach(font => {
-            const link = document.createElement('link');
-            link.rel = 'preload';
-            link.as = 'style';
-            link.href = font;
-            document.head.appendChild(link);
-        });
     }
 }
 
