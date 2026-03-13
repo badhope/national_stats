@@ -1,43 +1,40 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-CN" class="no-js">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="宏观经济数据分析平台 - 专业的数据分析与可视化工具，提供GDP、CPI、就业等核心经济指标数据服务">
-    <meta name="keywords" content="宏观经济,数据分析,GDP,CPI,统计,可视化,经济指标">
-    <meta name="author" content="National Stats Team">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="theme-color" content="#2563eb">
-    <meta name="robots" content="index, follow">
-    
     <title>宏观经济数据分析平台 | National Stats</title>
+    <meta name="description" content="宏观经济数据分析平台 - 专业的数据分析与可视化工具，提供 GDP、CPI、就业等核心经济指标数据服务">
+    <meta name="keywords" content="宏观经济，数据分析，GDP,CPI，统计，可视化，经济指标">
+    <meta name="theme-color" content="#2563eb">
     
     <link rel="dns-prefetch" href="https://fonts.googleapis.com">
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
-    
     <link rel="stylesheet" href="styles/main.css">
-    
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📊</text></svg>">
     <link rel="manifest" href="manifest/manifest.json">
-    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'><rect fill='%232563eb' width='180' height='180' rx='30'/><rect x='30' y='90' width='22' height='60' fill='white' opacity='0.9'/><rect x='60' y='55' width='22' height='95' fill='white' opacity='0.85'/><rect x='90' y='40' width='22' height='110' fill='white' opacity='0.8'/><rect x='120' y='70' width='22' height='80' fill='white' opacity='0.75'/></svg>">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="default">
-    <meta name="apple-mobile-web-app-title" content="National Stats">
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="application-name" content="National Stats">
-    <meta name="msapplication-TileColor" content="#2563eb">
-    <meta name="msapplication-tap-highlight" content="no">
+    
     <style>
-        :root{--color-primary:#2563eb;--color-bg:#ffffff;--header-height:72px}body{margin:0;font-family:'Noto Sans SC',system-ui,sans-serif}.header{position:fixed;top:0;left:0;right:0;height:var(--header-height);background:var(--color-bg);border-bottom:1px solid #e2e8f0;z-index:1000}.skip-link{position:absolute;top:-100px;left:50%;transform:translateX(-50%);padding:.5rem 1rem;background:var(--color-primary);color:#fff;border-radius:.5rem;z-index:10000}.skip-link:focus{top:1rem}
+        :root{--color-primary:#2563eb;--color-bg:#ffffff;--header-height:72px}
+        body{margin:0;font-family:'Noto Sans SC',system-ui,sans-serif}
+        .header{position:fixed;top:0;left:0;right:0;height:var(--header-height);background:var(--color-bg);border-bottom:1px solid #e2e8f0;z-index:1000}
+        .skip-link{position:absolute;top:-100px;left:50%;transform:translateX(-50%);padding:.5rem 1rem;background:var(--color-primary);color:#fff;border-radius:.5rem;z-index:10000}
+        .skip-link:focus{top:1rem}
+        html{scroll-behavior:smooth}
     </style>
+    
+    <script>
+        document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
+    </script>
 </head>
 <body>
     <a href="#main-content" class="skip-link">跳转到主要内容</a>
     
-    <header class="header" role="banner">
+    <header class="header" role="banner" data-component="header">
         <div class="header__container">
             <div class="header__brand">
                 <svg class="header__logo" viewBox="0 0 40 40" aria-hidden="true" role="img">
@@ -52,62 +49,75 @@
                 </div>
             </div>
             
-            <button class="header__toggle" aria-label="切换导航菜单" aria-expanded="false" aria-controls="main-nav">
+            <button class="header__toggle" aria-label="切换导航菜单" aria-expanded="false" aria-controls="main-nav" type="button">
                 <span class="header__toggle-bar"></span>
                 <span class="header__toggle-bar"></span>
                 <span class="header__toggle-bar"></span>
             </button>
             
-            <nav class="nav" id="main-nav" aria-label="主导航">
+            <nav class="nav" id="main-nav" aria-label="主导航" role="navigation">
                 <ul class="nav__list" role="menubar">
                     <li class="nav__item" role="none">
-                        <a href="#home" class="nav__link nav__link--active" role="menuitem">首页</a>
+                        <a href="#home" class="nav__link nav__link--active" role="menuitem" tabindex="0">首页</a>
                     </li>
                     <li class="nav__item nav__item--has-submenu" role="none">
-                        <a href="#data" class="nav__link" role="menuitem" aria-expanded="false" aria-haspopup="true">
+                        <a href="#data" class="nav__link" role="menuitem" aria-expanded="false" aria-haspopup="true" tabindex="0">
                             数据中心
                             <svg class="nav__arrow" viewBox="0 0 24 24" aria-hidden="true">
                                 <path d="M7 10l5 5 5-5" fill="none" stroke="currentColor" stroke-width="2"/>
                             </svg>
                         </a>
-                        <ul class="nav__submenu" role="menu">
-                            <li role="none"><a href="#gdp" class="nav__submenu-link" role="menuitem">GDP数据</a></li>
-                            <li role="none"><a href="#cpi" class="nav__submenu-link" role="menuitem">CPI数据</a></li>
-                            <li role="none"><a href="#employment" class="nav__submenu-link" role="menuitem">就业数据</a></li>
-                            <li role="none"><a href="#trade" class="nav__submenu-link" role="menuitem">贸易数据</a></li>
+                        <ul class="nav__submenu" role="menu" aria-label="数据中心子菜单">
+                            <li role="none"><a href="#gdp" class="nav__submenu-link" role="menuitem" tabindex="-1">GDP 数据</a></li>
+                            <li role="none"><a href="#cpi" class="nav__submenu-link" role="menuitem" tabindex="-1">CPI 数据</a></li>
+                            <li role="none"><a href="#employment" class="nav__submenu-link" role="menuitem" tabindex="-1">就业数据</a></li>
+                            <li role="none"><a href="#trade" class="nav__submenu-link" role="menuitem" tabindex="-1">贸易数据</a></li>
                         </ul>
                     </li>
                     <li class="nav__item" role="none">
-                        <a href="#analysis" class="nav__link" role="menuitem">分析工具</a>
+                        <a href="#analysis" class="nav__link" role="menuitem" tabindex="0">分析工具</a>
                     </li>
                     <li class="nav__item" role="none">
-                        <a href="#reports" class="nav__link" role="menuitem">报告中心</a>
+                        <a href="#reports" class="nav__link" role="menuitem" tabindex="0">报告中心</a>
                     </li>
                     <li class="nav__item" role="none">
-                        <a href="#contact" class="nav__link" role="menuitem">联系我们</a>
+                        <a href="#contact" class="nav__link" role="menuitem" tabindex="0">联系我们</a>
                     </li>
                 </ul>
             </nav>
         </div>
     </header>
-
-    <nav class="breadcrumb" aria-label="面包屑导航">
+    
+    <nav class="breadcrumb" aria-label="面包屑导航" data-component="breadcrumb">
         <div class="breadcrumb__container">
-            <ol class="breadcrumb__list">
-                <li class="breadcrumb__item"><a href="#home">首页</a></li>
-                <li class="breadcrumb__item"><a href="#data">数据中心</a></li>
-                <li class="breadcrumb__item breadcrumb__item--current" aria-current="page">GDP数据分析</li>
+            <ol class="breadcrumb__list" itemscope itemtype="https://schema.org/BreadcrumbList">
+                <li class="breadcrumb__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                    <a href="#home" itemprop="item"><span itemprop="name">首页</span></a>
+                    <meta itemprop="position" content="1" />
+                </li>
+                <li class="breadcrumb__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                    <a href="#data" itemprop="item"><span itemprop="name">数据中心</span></a>
+                    <meta itemprop="position" content="2" />
+                </li>
+                <li class="breadcrumb__item breadcrumb__item--current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" aria-current="page">
+                    <span itemprop="name">GDP 数据分析</span>
+                    <meta itemprop="position" content="3" />
+                </li>
             </ol>
         </div>
     </nav>
-
+    
     <main id="main-content" class="main" role="main">
-        <section class="hero" id="home" aria-labelledby="hero-title">
+        <section class="hero" id="home" aria-labelledby="hero-title" data-component="hero">
             <div class="hero__container">
                 <div class="hero__content">
-                    <h2 class="hero__title" id="hero-title">洞悉经济趋势<br><span>把握发展脉搏</span></h2>
+                    <h2 class="hero__title" id="hero-title">
+                        洞悉经济趋势
+                        <span class="hero__title-highlight">把握发展脉搏</span>
+                    </h2>
                     <p class="hero__description">
-                        基于国家统计局官方数据，提供专业的宏观经济分析、可视化展示和趋势预测服务。帮助政府机构、研究学者和企业用户快速获取有价值的经济洞察，辅助科学决策。
+                        基于国家统计局官方数据，提供专业的宏观经济分析、可视化展示和趋势预测服务。
+                        帮助政府机构、研究学者和企业用户快速获取有价值的经济洞察，辅助科学决策。
                     </p>
                     <div class="hero__actions">
                         <a href="#data" class="btn btn--primary btn--lg" role="button">
@@ -123,24 +133,24 @@
                             查看演示
                         </a>
                     </div>
-                    <div class="hero__stats">
-                        <div class="hero-stat">
-                            <span class="hero-stat__value">30+</span>
+                    <div class="hero__stats" role="list" aria-label="关键统计数据">
+                        <div class="hero-stat" role="listitem">
+                            <span class="hero-stat__value" aria-label="30 年以上">30+</span>
                             <span class="hero-stat__label">年历史数据</span>
                         </div>
-                        <div class="hero-stat">
-                            <span class="hero-stat__value">500+</span>
+                        <div class="hero-stat" role="listitem">
+                            <span class="hero-stat__value" aria-label="500 个以上">500+</span>
                             <span class="hero-stat__label">经济指标</span>
                         </div>
-                        <div class="hero-stat">
-                            <span class="hero-stat__value">99.9%</span>
+                        <div class="hero-stat" role="listitem">
+                            <span class="hero-stat__value" aria-label="99.9 个百分点">99.9%</span>
                             <span class="hero-stat__label">数据准确率</span>
                         </div>
                     </div>
                 </div>
                 <div class="hero__visual" aria-hidden="true">
-                    <div class="hero__chart">
-                        <div class="chart-bar" style="--height: 60%; --delay: 0s;" role="img" aria-label="数据增长图表"></div>
+                    <div class="hero__chart" role="img" aria-label="数据增长趋势图表">
+                        <div class="chart-bar" style="--height: 60%; --delay: 0s;"></div>
                         <div class="chart-bar" style="--height: 75%; --delay: 0.1s;"></div>
                         <div class="chart-bar" style="--height: 65%; --delay: 0.2s;"></div>
                         <div class="chart-bar" style="--height: 80%; --delay: 0.3s;"></div>
@@ -150,537 +160,482 @@
                 </div>
             </div>
         </section>
-
-        <section class="features" id="analysis" aria-labelledby="features-title">
+        
+        <section class="features" id="analysis" aria-labelledby="features-title" data-component="features">
             <div class="features__container">
                 <header class="features__header">
                     <h2 class="features__title" id="features-title">核心功能</h2>
                     <p class="features__subtitle">强大而专业的经济数据分析工具集</p>
                 </header>
-                
-                <div class="features__grid">
-                    <article class="feature-card" tabindex="0">
-                        <div class="feature-card__icon">
-                            <svg viewBox="0 0 24 24" aria-hidden="true">
-                                <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z" fill="currentColor"/>
-                            </svg>
+                <div class="features__grid" role="list">
+                    <article class="feature-card" role="listitem" tabindex="0">
+                        <div class="feature-card__icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z" fill="currentColor"/></svg>
                         </div>
                         <h3 class="feature-card__title">多维数据可视化</h3>
-                        <p class="feature-card__description">
-                            支持折线图、柱状图、饼图、热力图、地图可视化等多种形式。交互式图表让数据洞察更加直观，支持数据筛选、缩放、导出等高级功能。
-                        </p>
+                        <p class="feature-card__description">支持折线图、柱状图、饼图、热力图、地图可视化等多种形式。</p>
                         <a href="#visualization" class="feature-card__link">了解更多 →</a>
                     </article>
-                    
-                    <article class="feature-card" tabindex="0">
-                        <div class="feature-card__icon">
-                            <svg viewBox="0 0 24 24" aria-hidden="true">
-                                <path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM14 13v4h-4v-4H7l5-5 5 5h-3z" fill="currentColor"/>
-                            </svg>
+                    <article class="feature-card" role="listitem" tabindex="0">
+                        <div class="feature-card__icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM14 13v4h-4v-4H7l5-5 5 5h-3z" fill="currentColor"/></svg>
                         </div>
                         <h3 class="feature-card__title">一键数据导出</h3>
-                        <p class="feature-card__description">
-                            支持多种格式导出：Excel、CSV、JSON、PDF报告，满足不同场景的数据使用需求。批量导出功能让大数据处理更加高效。
-                        </p>
+                        <p class="feature-card__description">支持多种格式导出：Excel、CSV、JSON、PDF 报告。</p>
                         <a href="#download" class="feature-card__link">下载数据 →</a>
                     </article>
-                    
-                    <article class="feature-card" tabindex="0">
-                        <div class="feature-card__icon">
-                            <svg viewBox="0 0 24 24" aria-hidden="true">
-                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" fill="currentColor"/>
-                            </svg>
+                    <article class="feature-card" role="listitem" tabindex="0">
+                        <div class="feature-card__icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z" fill="currentColor"/></svg>
                         </div>
                         <h3 class="feature-card__title">智能趋势预测</h3>
-                        <p class="feature-card__description">
-                            基于ARIMA、指数平滑、机器学习等算法，提供经济指标短期预测。多种模型对比分析，辅助决策更加科学精准。
-                        </p>
+                        <p class="feature-card__description">基于 ARIMA、指数平滑、机器学习等算法提供预测。</p>
                         <a href="#prediction" class="feature-card__link">查看预测 →</a>
                     </article>
-                    
-                    <article class="feature-card" tabindex="0">
-                        <div class="feature-card__icon">
-                            <svg viewBox="0 0 24 24" aria-hidden="true">
-                                <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z" fill="currentColor"/>
-                            </svg>
+                    <article class="feature-card" role="listitem" tabindex="0">
+                        <div class="feature-card__icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" fill="currentColor"/></svg>
                         </div>
                         <h3 class="feature-card__title">数据安全保障</h3>
-                        <p class="feature-card__description">
-                            官方数据源授权，传输加密存储。完善的权限管理体系，保护用户隐私和数据安全，已通过ISO27001认证。
-                        </p>
+                        <p class="feature-card__description">官方数据源授权，传输加密存储，通过 ISO27001 认证。</p>
                         <a href="#security" class="feature-card__link">安全说明 →</a>
                     </article>
                 </div>
             </div>
         </section>
-
-        <section class="data-showcase" id="data" aria-labelledby="data-title">
+        
+        <section class="data-showcase" id="data" aria-labelledby="data-title" data-component="data-showcase">
             <div class="data-showcase__container">
                 <header class="data-showcase__header">
                     <h2 class="data-showcase__title" id="data-title">数据中心</h2>
                     <p class="data-showcase__subtitle">权威数据来源，全面经济指标覆盖</p>
                 </header>
-                
-                <div class="data-tabs" role="tablist">
-                    <button class="data-tab active" role="tab" aria-selected="true" aria-controls="gdp-panel" id="gdp-tab">
-                        <span class="data-tab__icon">📈</span>
+                <div class="data-tabs" role="tablist" aria-label="数据类型选择">
+                    <button class="data-tab data-tab--active" role="tab" aria-selected="true" aria-controls="gdp-panel" id="gdp-tab" type="button">
+                        <span class="data-tab__icon" aria-hidden="true">📈</span>
                         <span class="data-tab__label">GDP</span>
                     </button>
-                    <button class="data-tab" role="tab" aria-selected="false" aria-controls="cpi-panel" id="cpi-tab">
-                        <span class="data-tab__icon">🛒</span>
+                    <button class="data-tab" role="tab" aria-selected="false" aria-controls="cpi-panel" id="cpi-tab" tabindex="-1" type="button">
+                        <span class="data-tab__icon" aria-hidden="true">🛒</span>
                         <span class="data-tab__label">CPI</span>
                     </button>
-                    <button class="data-tab" role="tab" aria-selected="false" aria-controls="employment-panel" id="employment-tab">
-                        <span class="data-tab__icon">👥</span>
+                    <button class="data-tab" role="tab" aria-selected="false" aria-controls="employment-panel" id="employment-tab" tabindex="-1" type="button">
+                        <span class="data-tab__icon" aria-hidden="true">👥</span>
                         <span class="data-tab__label">就业</span>
                     </button>
-                    <button class="data-tab" role="tab" aria-selected="false" aria-controls="trade-panel" id="trade-tab">
-                        <span class="data-tab__icon">🚢</span>
+                    <button class="data-tab" role="tab" aria-selected="false" aria-controls="trade-panel" id="trade-tab" tabindex="-1" type="button">
+                        <span class="data-tab__icon" aria-hidden="true">🚢</span>
                         <span class="data-tab__label">贸易</span>
                     </button>
                 </div>
-                
                 <div class="data-panels">
-                    <div class="data-panel active" id="gdp-panel" role="tabpanel" aria-labelledby="gdp-tab">
+                    <div class="data-panel data-panel--active" id="gdp-panel" role="tabpanel" aria-labelledby="gdp-tab">
                         <div class="data-panel__content">
-                            <h3>国内生产总值(GDP)</h3>
+                            <h3>国内生产总值 (GDP)</h3>
                             <p>国内生产总值是指在一定时期内，一个国家或地区的经济中所生产出的全部最终产品和劳务的价值总和。</p>
                             <div class="data-panel__stats">
                                 <div class="data-stat">
-                                    <span class="data-stat__value">121.02万亿</span>
-                                    <span class="data-stat__label">2023年总量</span>
+                                    <span class="data-stat__value">121 万亿</span>
+                                    <span class="data-stat__label">2022 年 GDP 总量</span>
                                 </div>
                                 <div class="data-stat">
-                                    <span class="data-stat__value">5.2%</span>
+                                    <span class="data-stat__value">+3.0%</span>
                                     <span class="data-stat__label">同比增长率</span>
                                 </div>
+                                <div class="data-stat">
+                                    <span class="data-stat__value">人均 8.5 万</span>
+                                    <span class="data-stat__label">人均 GDP</span>
+                                </div>
                             </div>
-                            <a href="#gdp-detail" class="btn btn--outline">查看详情</a>
-                        </div>
-                        <div class="data-panel__chart">
-                            <div class="mini-chart">
-                                <div class="mini-chart__bar" style="--height: 45%;"></div>
-                                <div class="mini-chart__bar" style="--height: 52%;"></div>
-                                <div class="mini-chart__bar" style="--height: 58%;"></div>
-                                <div class="mini-chart__bar" style="--height: 65%;"></div>
-                                <div class="mini-chart__bar" style="--height: 72%;"></div>
-                                <div class="mini-chart__bar" style="--height: 80%;"></div>
+                            <div class="data-panel__actions">
+                                <a href="#gdp-detail" class="btn btn--primary">查看详细数据</a>
+                                <a href="#gdp-download" class="btn btn--secondary">下载数据集</a>
                             </div>
                         </div>
                     </div>
-                    
-                    <div class="data-panel" id="cpi-panel" role="tabpanel" aria-labelledby="cpi-tab">
+                    <div class="data-panel" id="cpi-panel" role="tabpanel" aria-labelledby="cpi-tab" hidden>
                         <div class="data-panel__content">
-                            <h3>居民消费价格指数(CPI)</h3>
-                            <p>居民消费价格指数是反映居民家庭一般所购买的消费品和服务项目价格水平变动情况的宏观经济指标。</p>
+                            <h3>居民消费价格指数 (CPI)</h3>
+                            <p>居民消费价格指数是反映一定时期内城乡居民所购买的生活消费品价格和服务项目价格变动趋势和程度的相对数。</p>
                             <div class="data-panel__stats">
                                 <div class="data-stat">
-                                    <span class="data-stat__value">0.2%</span>
-                                    <span class="data-stat__label">2024年1月</span>
+                                    <span class="data-stat__value">+0.2%</span>
+                                    <span class="data-stat__label">同比涨幅</span>
                                 </div>
                                 <div class="data-stat">
-                                    <span class="data-stat__value">2.1%</span>
-                                    <span class="data-stat__label">年度涨幅</span>
+                                    <span class="data-stat__value">102.5</span>
+                                    <span class="data-stat__label">价格指数</span>
                                 </div>
                             </div>
-                            <a href="#cpi-detail" class="btn btn--outline">查看详情</a>
-                        </div>
-                        <div class="data-panel__chart">
-                            <div class="mini-chart">
-                                <div class="mini-chart__bar" style="--height: 50%;"></div>
-                                <div class="mini-chart__bar" style="--height: 55%;"></div>
-                                <div class="mini-chart__bar" style="--height: 48%;"></div>
-                                <div class="mini-chart__bar" style="--height: 60%;"></div>
-                                <div class="mini-chart__bar" style="--height: 52%;"></div>
-                                <div class="mini-chart__bar" style="--height: 58%;"></div>
+                            <div class="data-panel__actions">
+                                <a href="#cpi-detail" class="btn btn--primary">查看详细数据</a>
+                                <a href="#cpi-download" class="btn btn--secondary">下载数据集</a>
                             </div>
                         </div>
                     </div>
-                    
-                    <div class="data-panel" id="employment-panel" role="tabpanel" aria-labelledby="employment-tab">
+                    <div class="data-panel" id="employment-panel" role="tabpanel" aria-labelledby="employment-tab" hidden>
                         <div class="data-panel__content">
-                            <h3>就业与劳动力</h3>
-                            <p>城镇新增就业人数、失业率、劳动力市场供需状况等核心就业指标监测与分析。</p>
+                            <h3>就业数据</h3>
+                            <p>就业数据反映了一个国家或地区的劳动力市场状况，包括就业率、失业率、新增就业岗位等关键指标。</p>
                             <div class="data-panel__stats">
-                                <div class="data-stat">
-                                    <span class="data-stat__value">1244万</span>
-                                    <span class="data-stat__label">2023年新增就业</span>
-                                </div>
                                 <div class="data-stat">
                                     <span class="data-stat__value">5.2%</span>
-                                    <span class="data-stat__label">城镇调查失业率</span>
+                                    <span class="data-stat__label">调查失业率</span>
+                                </div>
+                                <div class="data-stat">
+                                    <span class="data-stat__value">1200 万</span>
+                                    <span class="data-stat__label">年新增就业</span>
                                 </div>
                             </div>
-                            <a href="#employment-detail" class="btn btn--outline">查看详情</a>
-                        </div>
-                        <div class="data-panel__chart">
-                            <div class="mini-chart">
-                                <div class="mini-chart__bar" style="--height: 65%;"></div>
-                                <div class="mini-chart__bar" style="--height: 70%;"></div>
-                                <div class="mini-chart__bar" style="--height: 68%;"></div>
-                                <div class="mini-chart__bar" style="--height: 75%;"></div>
-                                <div class="mini-chart__bar" style="--height: 72%;"></div>
-                                <div class="mini-chart__bar" style="--height: 78%;"></div>
+                            <div class="data-panel__actions">
+                                <a href="#employment-detail" class="btn btn--primary">查看详细数据</a>
+                                <a href="#employment-download" class="btn btn--secondary">下载数据集</a>
                             </div>
                         </div>
                     </div>
-                    
-                    <div class="data-panel" id="trade-panel" role="tabpanel" aria-labelledby="trade-tab">
+                    <div class="data-panel" id="trade-panel" role="tabpanel" aria-labelledby="trade-tab" hidden>
                         <div class="data-panel__content">
-                            <h3>对外贸易</h3>
-                            <p>进出口总额、贸易顺差、贸易伙伴分布等对外贸易核心指标实时追踪。</p>
+                            <h3>贸易数据</h3>
+                            <p>贸易数据反映了一个国家或地区与其他国家或地区之间的商品和服务交换情况，包括进出口总额、贸易顺差/逆差等。</p>
                             <div class="data-panel__stats">
                                 <div class="data-stat">
-                                    <span class="data-stat__value">41.76万亿</span>
-                                    <span class="data-stat__label">2023年进出口总额</span>
+                                    <span class="data-stat__value">4.37 万亿</span>
+                                    <span class="data-stat__label">货物贸易总额</span>
                                 </div>
                                 <div class="data-stat">
-                                    <span class="data-stat__value">5,230亿</span>
-                                    <span class="data-stat__label">贸易顺差</span>
+                                    <span class="data-stat__value">+8.1%</span>
+                                    <span class="data-stat__label">同比增长</span>
                                 </div>
                             </div>
-                            <a href="#trade-detail" class="btn btn--outline">查看详情</a>
-                        </div>
-                        <div class="data-panel__chart">
-                            <div class="mini-chart">
-                                <div class="mini-chart__bar" style="--height: 55%;"></div>
-                                <div class="mini-chart__bar" style="--height: 62%;"></div>
-                                <div class="mini-chart__bar" style="--height: 70%;"></div>
-                                <div class="mini-chart__bar" style="--height: 68%;"></div>
-                                <div class="mini-chart__bar" style="--height: 75%;"></div>
-                                <div class="mini-chart__bar" style="--height: 82%;"></div>
+                            <div class="data-panel__actions">
+                                <a href="#trade-detail" class="btn btn--primary">查看详细数据</a>
+                                <a href="#trade-download" class="btn btn--secondary">下载数据集</a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-
-        <section class="downloads" id="reports" aria-labelledby="downloads-title">
+        
+        <section class="downloads" id="reports" aria-labelledby="downloads-title" data-component="downloads">
             <div class="downloads__container">
                 <header class="downloads__header">
                     <h2 class="downloads__title" id="downloads-title">资源下载</h2>
                     <p class="downloads__subtitle">获取最新数据和分析报告</p>
                 </header>
-                
-                <div class="downloads__grid">
-                    <article class="download-card" tabindex="0">
-                        <div class="download-card__icon">
-                            <svg viewBox="0 0 24 24" aria-hidden="true">
-                                <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z" fill="currentColor"/>
-                            </svg>
+                <div class="downloads__filters" role="group" aria-label="下载分类筛选">
+                    <button class="downloads__filter downloads__filter--active" data-filter="all" type="button">全部</button>
+                    <button class="downloads__filter" data-filter="report" type="button">分析报告</button>
+                    <button class="downloads__filter" data-filter="dataset" type="button">数据集</button>
+                    <button class="downloads__filter" data-filter="tool" type="button">工具软件</button>
+                </div>
+                <div class="downloads__list" role="list">
+                    <article class="download-item" role="listitem" data-category="report">
+                        <div class="download-item__icon">
+                            <svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z" fill="currentColor"/></svg>
                         </div>
-                        <div class="download-card__content">
-                            <h3 class="download-card__title">年度经济数据报告</h3>
-                            <p class="download-card__description">2024年度宏观经济运行情况分析报告，包含GDP、CPI、就业等核心指标的深度分析与展望。</p>
-                            <div class="download-card__meta">
-                                <span class="download-card__size">PDF • 2.4 MB</span>
-                                <span class="download-card__date">更新于 2024-12-15</span>
+                        <div class="download-item__content">
+                            <h3 class="download-item__title">2024 年宏观经济年度报告</h3>
+                            <p class="download-item__description">全面分析 2024 年宏观经济运行态势，包括 GDP、CPI、就业、贸易等核心指标的深度解读和 2025 年展望。</p>
+                            <div class="download-item__meta">
+                                <span class="download-item__format" title="PDF 格式">PDF</span>
+                                <span class="download-item__size">12.5 MB</span>
+                                <span class="download-item__downloads" title="下载次数">📥 1,234 次</span>
+                                <time class="download-item__date" datetime="2024-01-15">2024-01-15</time>
                             </div>
                         </div>
-                        <div class="download-card__action">
-                            <button class="download-btn" 
-                                    data-file="reports/annual_2024.pdf" 
-                                    data-filename="年度经济数据报告2024.pdf"
-                                    data-mode="direct"
-                                    aria-label="下载年度经济数据报告">
-                                <svg class="download-btn__icon" viewBox="0 0 24 24" aria-hidden="true">
-                                    <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z" fill="currentColor"/>
-                                </svg>
-                                <span class="download-btn__text">立即下载</span>
-                                <div class="download-btn__progress" aria-hidden="true">
-                                    <svg class="download-btn__spinner" viewBox="0 0 24 24">
-                                        <circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2" stroke-dasharray="31.4" stroke-dashoffset="10"/>
-                                    </svg>
-                                </div>
-                            </button>
-                        </div>
+                        <a href="/downloads/2024-annual-report.pdf" class="download-item__btn btn btn--primary" download>
+                            <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z" fill="currentColor"/>
+                            </svg>
+                            下载
+                        </a>
                     </article>
-                    
-                    <article class="download-card" tabindex="0">
-                        <div class="download-card__icon">
-                            <svg viewBox="0 0 24 24" aria-hidden="true">
-                                <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z" fill="currentColor"/>
-                            </svg>
+                    <article class="download-item" role="listitem" data-category="dataset">
+                        <div class="download-item__icon">
+                            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z" fill="currentColor"/></svg>
                         </div>
-                        <div class="download-card__content">
-                            <h3 class="download-card__title">GDP同比增长率数据集</h3>
-                            <p class="download-card__description">1990-2024年季度GDP同比增长率原始数据，适合进行深度分析和二次开发。</p>
-                            <div class="download-card__meta">
-                                <span class="download-card__size">CSV • 156 KB</span>
-                                <span class="download-card__date">更新于 2024-12-10</span>
+                        <div class="download-item__content">
+                            <h3 class="download-item__title">GDP 历史数据 (1990-2024)</h3>
+                            <p class="download-item__description">包含 1990 年至 2024 年完整的 GDP 年度数据、季度数据，支持 Excel 和 CSV 格式。</p>
+                            <div class="download-item__meta">
+                                <span class="download-item__format" title="Excel 格式">XLSX</span>
+                                <span class="download-item__size">2.8 MB</span>
+                                <span class="download-item__downloads" title="下载次数">📥 3,456 次</span>
+                                <time class="download-item__date" datetime="2024-01-10">2024-01-10</time>
                             </div>
                         </div>
-                        <div class="download-card__action">
-                            <button class="download-btn download-btn--secondary" 
-                                    data-file="data/gdp_yoy_1990_2024.csv" 
-                                    data-filename="GDP同比增长率数据.csv"
-                                    data-mode="new-window"
-                                    aria-label="下载GDP数据">
-                                <svg class="download-btn__icon" viewBox="0 0 24 24" aria-hidden="true">
-                                    <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z" fill="currentColor"/>
-                                </svg>
-                                <span class="download-btn__text">新窗口打开</span>
-                                <div class="download-btn__progress" aria-hidden="true">
-                                    <svg class="download-btn__spinner" viewBox="0 0 24 24">
-                                        <circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2" stroke-dasharray="31.4" stroke-dashoffset="10"/>
-                                    </svg>
-                                </div>
-                            </button>
-                        </div>
-                    </article>
-                    
-                    <article class="download-card" tabindex="0">
-                        <div class="download-card__icon">
-                            <svg viewBox="0 0 24 24" aria-hidden="true">
-                                <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z" fill="currentColor"/>
+                        <a href="/downloads/gdp-history-1990-2024.xlsx" class="download-item__btn btn btn--primary" download>
+                            <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z" fill="currentColor"/>
                             </svg>
-                        </div>
-                        <div class="download-card__content">
-                            <h3 class="download-card__title">CPI分类指数数据</h3>
-                            <p class="download-card__description">居民消费价格分类指数月度数据，包含食品、居住、教育等8大类指数的详细分类数据。</p>
-                            <div class="download-card__meta">
-                                <span class="download-card__size">Excel • 328 KB</span>
-                                <span class="download-card__date">更新于 2024-11-30</span>
-                            </div>
-                        </div>
-                        <div class="download-card__action">
-                            <button class="download-btn" 
-                                    data-file="data/cpi_index.xlsx" 
-                                    data-filename="CPI分类指数数据.xlsx"
-                                    data-mode="direct"
-                                    aria-label="下载CPI数据">
-                                <svg class="download-btn__icon" viewBox="0 0 24 24" aria-hidden="true">
-                                    <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z" fill="currentColor"/>
-                                </svg>
-                                <span class="download-btn__text">立即下载</span>
-                                <div class="download-btn__progress" aria-hidden="true">
-                                    <svg class="download-btn__spinner" viewBox="0 0 24 24">
-                                        <circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2" stroke-dasharray="31.4" stroke-dashoffset="10"/>
-                                    </svg>
-                                </div>
-                            </button>
-                        </div>
-                    </article>
-                    
-                    <article class="download-card" tabindex="0">
-                        <div class="download-card__icon">
-                            <svg viewBox="0 0 24 24" aria-hidden="true">
-                                <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z" fill="currentColor"/>
-                            </svg>
-                        </div>
-                        <div class="download-card__content">
-                            <h3 class="download-card__title">就业形势分析报告</h3>
-                            <p class="download-card__description">城镇新增就业、失业率、劳动力市场供需分析报告，包含详细行业分析。</p>
-                            <div class="download-card__meta">
-                                <span class="download-card__size">PDF • 1.8 MB</span>
-                                <span class="download-card__date">更新于 2024-11-20</span>
-                            </div>
-                        </div>
-                        <div class="download-card__action">
-                            <button class="download-btn" 
-                                    data-file="reports/employment_2024.pdf" 
-                                    data-filename="就业形势分析报告2024.pdf"
-                                    data-mode="direct"
-                                    aria-label="下载就业报告">
-                                <svg class="download-btn__icon" viewBox="0 0 24 24" aria-hidden="true">
-                                    <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z" fill="currentColor"/>
-                                </svg>
-                                <span class="download-btn__text">立即下载</span>
-                                <div class="download-btn__progress" aria-hidden="true">
-                                    <svg class="download-btn__spinner" viewBox="0 0 24 24">
-                                        <circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2" stroke-dasharray="31.4" stroke-dashoffset="10"/>
-                                    </svg>
-                                </div>
-                            </button>
-                        </div>
+                            下载
+                        </a>
                     </article>
                 </div>
             </div>
         </section>
-
-        <section class="testimonials" aria-labelledby="testimonials-title">
-            <div class="testimonials__container">
-                <header class="testimonials__header">
-                    <h2 class="testimonials__title" id="testimonials-title">用户评价</h2>
-                </header>
-                <div class="testimonials__grid">
-                    <blockquote class="testimonial">
-                        <p class="testimonial__text">"这个平台大大提升了我们团队的数据分析效率，特别是GDP和CPI数据的可视化功能非常直观。"</p>
-                        <footer class="testimonial__author">
-                            <cite>某知名券商研究院</cite>
-                        </footer>
-                    </blockquote>
-                    <blockquote class="testimonial">
-                        <p class="testimonial__text">"作为学术研究者，我需要长期的历史经济数据，这个平台的数据库帮了我大忙。"</p>
-                        <footer class="testimonial__author">
-                            <cite>北京大学经济学院教授</cite>
-                        </footer>
-                    </blockquote>
-                    <blockquote class="testimonial">
-                        <p class="testimonial__text">"数据准确，更新及时，是我们政府决策部门的重要参考来源。"</p>
-                        <footer class="testimonial__author">
-                            <cite>某省发改委研究人员</cite>
-                        </footer>
-                    </blockquote>
-                </div>
-            </div>
-        </section>
-
-        <section class="contact" id="contact" aria-labelledby="contact-title">
+        
+        <section class="contact" id="contact" aria-labelledby="contact-title" data-component="contact">
             <div class="contact__container">
-                <header class="contact__header">
-                    <h2 class="contact__title" id="contact-title">联系我们</h2>
-                    <p class="contact__subtitle">有任何问题？我们的团队随时为您提供帮助</p>
-                </header>
-                <form class="contact-form" id="contact-form" action="#" method="POST" novalidate>
-                    <div class="contact-form__row">
-                        <div class="contact-form__field">
-                            <label for="name" class="contact-form__label">姓名 <span class="required">*</span></label>
-                            <input type="text" id="name" name="name" class="contact-form__input" required autocomplete="name" placeholder="请输入您的姓名">
-                            <span class="contact-form__error" id="name-error"></span>
+                <div class="contact__grid">
+                    <div class="contact__info">
+                        <header class="contact__header">
+                            <h2 class="contact__title" id="contact-title">联系我们</h2>
+                            <p class="contact__subtitle">有任何问题？我们的团队随时为您提供帮助</p>
+                        </header>
+                        <div class="contact__methods">
+                            <div class="contact-method">
+                                <div class="contact-method__icon">
+                                    <svg viewBox="0 0 24 24"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-1.57 1.97c-2.83-1.49-5.15-3.8-6.62-6.63l1.97-1.57c.26-.26.36-.62.25-1-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3.3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z" fill="currentColor"/></svg>
+                                </div>
+                                <div class="contact-method__content">
+                                    <h3 class="contact-method__title">电话咨询</h3>
+                                    <p class="contact-method__description">工作日 9:00-18:00</p>
+                                    <a href="tel:+86-10-12345678" class="contact-method__link">📞 010-12345678</a>
+                                </div>
+                            </div>
+                            <div class="contact-method">
+                                <div class="contact-method__icon">
+                                    <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" fill="currentColor"/></svg>
+                                </div>
+                                <div class="contact-method__content">
+                                    <h3 class="contact-method__title">邮件咨询</h3>
+                                    <p class="contact-method__description">24 小时内回复</p>
+                                    <a href="mailto:support@nationalstats.gov.cn" class="contact-method__link">✉️ support@nationalstats.gov.cn</a>
+                                </div>
+                            </div>
+                            <div class="contact-method">
+                                <div class="contact-method__icon">
+                                    <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" fill="currentColor"/></svg>
+                                </div>
+                                <div class="contact-method__content">
+                                    <h3 class="contact-method__title">办公地址</h3>
+                                    <p class="contact-method__description">欢迎来访（需预约）</p>
+                                    <address class="contact-method__address">
+                                        北京市西城区月坛北街 1 号<br>
+                                        国家统计局大楼 8 层
+                                    </address>
+                                </div>
+                            </div>
                         </div>
-                        <div class="contact-form__field">
-                            <label for="email" class="contact-form__label">邮箱 <span class="required">*</span></label>
-                            <input type="email" id="email" name="email" class="contact-form__input" required autocomplete="email" placeholder="your@email.com">
-                            <span class="contact-form__error" id="email-error"></span>
-                        </div>
                     </div>
-                    <div class="contact-form__field">
-                        <label for="subject" class="contact-form__label">主题 <span class="required">*</span></label>
-                        <select id="subject" name="subject" class="contact-form__select" required>
-                            <option value="">请选择咨询主题</option>
-                            <option value="data">数据咨询</option>
-                            <option value="technical">技术支持</option>
-                            <option value="cooperation">商务合作</option>
-                            <option value="other">其他</option>
-                        </select>
-                        <span class="contact-form__error" id="subject-error"></span>
+                    <div class="contact__form-wrapper">
+                        <form class="contact__form" id="contact-form" novalidate data-component="contact-form">
+                            <h3 class="contact__form-title">在线留言</h3>
+                            <div class="form-group">
+                                <label for="contact-name" class="form-label">
+                                    姓名
+                                    <span class="form-required" aria-label="必填">*</span>
+                                </label>
+                                <input 
+                                    type="text" 
+                                    id="contact-name" 
+                                    name="name" 
+                                    class="form-input" 
+                                    required
+                                    autocomplete="name"
+                                    placeholder="请输入您的姓名"
+                                    aria-required="true"
+                                >
+                                <span class="form-error" id="name-error" role="alert" aria-live="polite"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="contact-email" class="form-label">
+                                    邮箱
+                                    <span class="form-required" aria-label="必填">*</span>
+                                </label>
+                                <input 
+                                    type="email" 
+                                    id="contact-email" 
+                                    name="email" 
+                                    class="form-input" 
+                                    required
+                                    autocomplete="email"
+                                    placeholder="your@email.com"
+                                    aria-required="true"
+                                    aria-describedby="email-help"
+                                >
+                                <small id="email-help" class="form-help">我们不会泄露您的邮箱地址</small>
+                                <span class="form-error" id="email-error" role="alert" aria-live="polite"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="contact-subject" class="form-label">
+                                    主题
+                                    <span class="form-required" aria-label="必填">*</span>
+                                </label>
+                                <select 
+                                    id="contact-subject" 
+                                    name="subject" 
+                                    class="form-input form-select" 
+                                    required
+                                    aria-required="true"
+                                >
+                                    <option value="">请选择咨询主题</option>
+                                    <option value="data">数据咨询</option>
+                                    <option value="technical">技术支持</option>
+                                    <option value="cooperation">合作洽谈</option>
+                                    <option value="feedback">意见反馈</option>
+                                    <option value="other">其他问题</option>
+                                </select>
+                                <span class="form-error" id="subject-error" role="alert" aria-live="polite"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="contact-message" class="form-label">
+                                    留言内容
+                                    <span class="form-required" aria-label="必填">*</span>
+                                </label>
+                                <textarea 
+                                    id="contact-message" 
+                                    name="message" 
+                                    class="form-input form-textarea" 
+                                    rows="5" 
+                                    required
+                                    placeholder="请详细描述您的问题或需求..."
+                                    aria-required="true"
+                                ></textarea>
+                                <span class="form-error" id="message-error" role="alert" aria-live="polite"></span>
+                            </div>
+                            <div class="form-group form-group--checkbox">
+                                <label class="form-checkbox">
+                                    <input 
+                                        type="checkbox" 
+                                        name="privacy" 
+                                        class="form-checkbox__input"
+                                        required
+                                        aria-required="true"
+                                    >
+                                    <span class="form-checkbox__label">
+                                        我已阅读并同意
+                                        <a href="#privacy" class="form-link" target="_blank">隐私政策</a>
+                                        <span class="form-required" aria-label="必填">*</span>
+                                    </span>
+                                </label>
+                                <span class="form-error" id="privacy-error" role="alert" aria-live="polite"></span>
+                            </div>
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn--primary btn--lg btn--block">
+                                    提交咨询
+                                    <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true">
+                                        <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" fill="currentColor"/>
+                                    </svg>
+                                </button>
+                            </div>
+                            <div class="form-notice" role="status" aria-live="polite">
+                                <p>通常会在 1-2 个工作日内回复，节假日顺延</p>
+                            </div>
+                        </form>
                     </div>
-                    <div class="contact-form__field">
-                        <label for="message" class="contact-form__label">留言 <span class="required">*</span></label>
-                        <textarea id="message" name="message" class="contact-form__textarea" rows="5" required placeholder="请详细描述您的需求..."></textarea>
-                        <span class="contact-form__error" id="message-error"></span>
-                    </div>
-                    <div class="contact-form__field contact-form__field--checkbox">
-                        <input type="checkbox" id="privacy" name="privacy" required>
-                        <label for="privacy">我已阅读并同意<a href="#privacy-policy">隐私政策</a></label>
-                    </div>
-                    <button type="submit" class="btn btn--primary btn--lg contact-form__submit">
-                        <span>提交咨询</span>
-                        <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" fill="currentColor"/>
-                        </svg>
-                    </button>
-                </form>
+                </div>
             </div>
         </section>
     </main>
-
-    <footer class="footer" role="contentinfo">
+    
+    <footer class="footer" role="contentinfo" data-component="footer">
         <div class="footer__container">
-            <div class="footer__main">
+            <div class="footer__grid">
                 <div class="footer__brand">
-                    <svg class="footer__logo" viewBox="0 0 40 40" aria-hidden="true">
+                    <svg class="footer__logo" viewBox="0 0 40 40" aria-hidden="true" role="img">
                         <title>National Stats Logo</title>
                         <rect x="5" y="25" width="8" height="15" fill="currentColor" opacity="0.7"/>
                         <rect x="16" y="15" width="8" height="25" fill="currentColor" opacity="0.85"/>
                         <rect x="27" y="5" width="8" height="35" fill="currentColor"/>
                     </svg>
-                    <span class="footer__name">National Stats</span>
+                    <h2 class="footer__title">宏观经济数据分析平台</h2>
+                    <p class="footer__description">
+                        专业的宏观经济数据分析平台，提供权威、准确、及时的经济统计数据和深度分析服务。
+                    </p>
                 </div>
-                <nav class="footer__nav" aria-label="页脚导航">
-                    <div class="footer__section">
-                        <h4 class="footer__heading">产品服务</h4>
-                        <ul class="footer__list">
-                            <li><a href="#data">数据中心</a></li>
-                            <li><a href="#analysis">分析工具</a></li>
-                            <li><a href="#reports">报告中心</a></li>
-                            <li><a href="#api">API服务</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer__section">
-                        <h4 class="footer__heading">技术支持</h4>
-                        <ul class="footer__list">
-                            <li><a href="#docs">开发文档</a></li>
-                            <li><a href="#sdk">SDK下载</a></li>
-                            <li><a href="#faq">常见问题</a></li>
-                            <li><a href="#support">技术支持</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer__section">
-                        <h4 class="footer__heading">关于我们</h4>
-                        <ul class="footer__list">
-                            <li><a href="#company">公司介绍</a></li>
-                            <li><a href="#contact">联系方式</a></li>
-                            <li><a href="#careers">加入我们</a></li>
-                            <li><a href="#press">媒体报道</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer__section">
-                        <h4 class="footer__heading">关注我们</h4>
-                        <div class="footer__social">
-                            <a href="#" class="social-link" aria-label="微信公众号">
-                                <svg viewBox="0 0 24 24"><path d="M8.691 2.188C3.891 2.188 0 5.476 0 9.53c0 2.212 1.17 4.203 3.002 5.55a.59.59 0 0 1 .213.665l-.39 1.48c-.019.07-.048.141-.048.213 0 .163.13.295.29.295a.326.326 0 0 0 .167-.054l1.903-1.114a.864.864 0 0 1 .717-.098 10.16 10.16 0 0 0 2.837.403c.276 0 .543-.027.811-.05-.857-2.578.157-4.972 1.932-6.446 1.703-1.415 3.882-1.98 5.853-1.838-.576-3.583-4.196-6.348-8.596-6.348zM5.785 5.991c.642 0 1.162.529 1.162 1.18a1.17 1.17 0 0 1-1.162 1.178A1.17 1.17 0 0 1 4.623 7.17c0-.651.52-1.18 1.162-1.18zm5.813 0c.642 0 1.162.529 1.162 1.18a1.17 1.17 0 0 1-1.162 1.178 1.17 1.17 0 0 1-1.162-1.178c0-.651.52-1.18 1.162-1.18zm5.34 2.867c-1.797-.052-3.746.512-5.28 1.786-1.72 1.428-2.687 3.72-1.78 6.22.942 2.453 3.666 4.229 6.884 4.229.826 0 1.622-.12 2.361-.336a.722.722 0 0 1 .598.082l1.584.926a.272.272 0 0 0 .14.045c.134 0 .24-.11.24-.246 0-.06-.023-.12-.038-.177l-.327-1.233a.582.582 0 0 1-.023-.156.49.49 0 0 1 .201-.398C23.024 18.48 24 16.82 24 14.98c0-3.21-2.931-5.837-6.656-6.088V8.89c-.135-.01-.269-.03-.406-.03zm-2.53 3.274c.535 0 .969.44.969.982a.976.976 0 0 1-.969.983.976.976 0 0 1-.969-.983c0-.542.434-.982.97-.982z" fill="currentColor"/></svg>
-                            </a>
-                            <a href="#" class="social-link" aria-label="微博">
-                                <svg viewBox="0 0 24 24"><path d="M10.098 20.323c-3.977.391-7.414-1.406-7.672-4.02-.259-2.609 2.759-5.047 6.74-5.441 3.979-.394 7.413 1.404 7.671 4.018.259 2.6-2.759 5.049-6.739 5.443zM9.05 17.219c-.384.616-1.208.884-1.829.602-.612-.279-.793-.991-.406-1.593.379-.595 1.176-.861 1.793-.601.622.263.82.972.442 1.592zm1.27-1.627c-.141.237-.449.353-.689.253-.236-.09-.313-.361-.177-.586.138-.227.436-.346.672-.24.239.09.315.36.194.573zm.176-2.719c-1.893-.493-4.033.45-4.857 2.118-.836 1.704-.026 3.591 1.886 4.21 1.983.64 4.318-.341 5.132-2.179.8-1.793-.201-3.642-2.161-4.149zm7.563-1.224c-.346-.105-.581-.178-.402-.641.388-1.003.428-1.883.003-2.6-.852-1.428-2.942-1.636-4.812-1.234-1.8.387-2.939 1.952-2.576 3.561.366 1.623 1.892 2.492 3.705 2.105.443-.091.81-.17 1.134-.235 1.552-.318 2.698-.996 2.948-3.956zm2.599-3.552c.073-.056.14-.114.222-.165-.378-.166-.782-.302-1.208-.395-1.371-.301-2.731-.154-3.676.567-.95.718-1.22 1.836-.729 2.853.495 1.021 1.584 1.533 2.769 1.341.424-.061.832-.19 1.209-.367.08.175.178.344.262.504.344.622.965 1.089 1.686 1.191.721.103 1.481-.163 2.011-.765.53-.602.687-1.435.402-2.209-.284-.773-.903-1.358-1.708-1.558-.202-.053-.408-.09-.612-.111.002-.003.003-.007.004-.011zm-9.439 8.111c.349.002.668-.037.935-.121.809-.258 1.47-.798 1.894-1.495.426-.698.568-1.532.431-2.347-.137-.809-.568-1.546-1.217-2.013-.327-.235-.707-.414-1.099-.529-.391-.114-.795-.17-1.199-.17-.405 0-.81.057-1.2.171-.392.115-.772.295-1.1.531-.649.467-1.082 1.205-1.218 2.015-.136.815.005 1.648.43 2.345.424.697 1.085 1.237 1.893 1.495.267.084.586.121.935.121.234-.002.463-.029.686-.074.224-.047.44-.113.647-.191.209-.078.406-.172.594-.277.188-.104.368-.215.534-.332.082.145.17.284.255.42.374.597.97 1.015 1.683 1.103.358.045.721.015 1.074-.09.353-.104.685-.266.985-.466l-.021-.022c-.298.191-.638.33-.989.433-.35.102-.708.14-1.063.106-.354-.033-.696-.115-1.012-.237-.158-.061-.309-.131-.455-.206-.146-.074-.287-.155-.422-.242zm1.855-7.241c.282.161.438.494.353.838-.084.345-.361.593-.71.644-.349.05-.678-.12-.865-.442-.187-.322-.166-.68.053-.949.217-.266.59-.352.914-.266.061.015.119.037.177.063-.015-.078-.032-.156-.046-.234l-.016.286zm.076 2.036c.151.124.336.178.519.151.179-.024.34-.124.449-.276.108-.152.141-.336.091-.508-.049-.172-.175-.311-.346-.383-.17-.072-.357-.063-.52.022-.164.084-.285.233-.336.405 0-.001-.001-.001-.001-.002.129.139.292.219.463.218.172 0 .338-.08.468-.221.127-.141.194-.326.185-.513-.009-.188-.091-.36-.231-.485-.141-.124-.32-.191-.506-.189-.187.003-.363.085-.496.231l.001-.001zm.076-2.518c.089-.059.194-.087.3-.074.107.009.203.058.279.134.075.076.12.176.129.281.008.105-.025.208-.09.29-.065.083-.159.135-.264.145-.104.009-.205-.028-.293-.1-.088-.075-.135-.179-.131-.286.004-.107.053-.203.133-.281l-.063-.059z" fill="currentColor"/></svg>
-                            </a>
-                            <a href="#" class="social-link" aria-label="LinkedIn">
-                                <svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z" fill="currentColor"/></svg>
-                            </a>
-                            <a href="#" class="social-link" aria-label="GitHub">
-                                <svg viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z" fill="currentColor"/></svg>
-                            </a>
-                        </div>
-                    </div>
-                </nav>
+                <div class="footer__links">
+                    <h3 class="footer__heading">快速链接</h3>
+                    <ul class="footer__list">
+                        <li><a href="#home" class="footer__link">首页</a></li>
+                        <li><a href="#data" class="footer__link">数据中心</a></li>
+                        <li><a href="#analysis" class="footer__link">分析工具</a></li>
+                        <li><a href="#reports" class="footer__link">报告中心</a></li>
+                        <li><a href="#contact" class="footer__link">联系我们</a></li>
+                    </ul>
+                </div>
+                <div class="footer__links">
+                    <h3 class="footer__heading">数据分类</h3>
+                    <ul class="footer__list">
+                        <li><a href="#gdp" class="footer__link">GDP 数据</a></li>
+                        <li><a href="#cpi" class="footer__link">CPI 数据</a></li>
+                        <li><a href="#employment" class="footer__link">就业数据</a></li>
+                        <li><a href="#trade" class="footer__link">贸易数据</a></li>
+                        <li><a href="#finance" class="footer__link">财政金融</a></li>
+                    </ul>
+                </div>
+                <div class="footer__contact">
+                    <h3 class="footer__heading">联系方式</h3>
+                    <ul class="footer__list">
+                        <li class="footer__contact-item">
+                            <svg class="footer__icon" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-1.57 1.97c-2.83-1.49-5.15-3.8-6.62-6.63l1.97-1.57c.26-.26.36-.62.25-1-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3.3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z" fill="currentColor"/>
+                            </svg>
+                            <a href="tel:+86-10-12345678" class="footer__link">010-12345678</a>
+                        </li>
+                        <li class="footer__contact-item">
+                            <svg class="footer__icon" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" fill="currentColor"/>
+                            </svg>
+                            <a href="mailto:support@nationalstats.gov.cn" class="footer__link">support@nationalstats.gov.cn</a>
+                        </li>
+                        <li class="footer__contact-item">
+                            <svg class="footer__icon" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" fill="currentColor"/>
+                            </svg>
+                            <address class="footer__address">
+                                北京市西城区月坛北街 1 号
+                            </address>
+                        </li>
+                    </ul>
+                </div>
             </div>
             <div class="footer__bottom">
-                <p class="footer__copyright">
-                    © 2024 宏观经济数据分析平台. All rights reserved.
-                </p>
-                <div class="footer__links">
-                    <a href="#privacy-policy">隐私政策</a>
-                    <a href="#terms">服务条款</a>
-                    <a href="#sitemap">网站地图</a>
-                    <a href="#licenses">开源许可</a>
+                <div class="footer__legal">
+                    <p class="footer__copyright">
+                        © <time datetime="2024">2024</time> National Stats. All rights reserved.
+                    </p>
+                    <p class="footer__icp">
+                        <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener">
+                            京 ICP 备 12345678 号
+                        </a>
+                    </p>
+                </div>
+                <div class="footer__policies">
+                    <a href="#privacy" class="footer__policy">隐私政策</a>
+                    <a href="#terms" class="footer__policy">使用条款</a>
+                    <a href="#cookies" class="footer__policy">Cookie 政策</a>
                 </div>
             </div>
         </div>
+        <button class="back-to-top" aria-label="返回顶部" title="返回顶部" type="button">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z" fill="currentColor"/>
+            </svg>
+        </button>
     </footer>
-
-    <button class="back-to-top" aria-label="返回顶部" aria-hidden="true">
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z" fill="currentColor"/>
-        </svg>
-    </button>
-
-    <div class="toast-container" aria-live="polite" aria-atomic="true"></div>
-
-    <div class="modal" id="demo-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-hidden="true">
-        <div class="modal__overlay" data-modal-close></div>
-        <div class="modal__content">
-            <button class="modal__close" aria-label="关闭弹窗" data-modal-close>
-                <svg viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" fill="currentColor"/></svg>
-            </button>
-            <h2 class="modal__title" id="modal-title">平台演示</h2>
-            <div class="modal__body">
-                <p>本平台提供完整的经济数据分析功能，包括：</p>
-                <ul>
-                    <li>多维度经济指标查询</li>
-                    <li>交互式数据可视化</li>
-                    <li>智能趋势预测分析</li>
-                    <li>一键数据导出</li>
-                </ul>
-                <p>联系我们的客服团队获取完整演示账号。</p>
-            </div>
-            <div class="modal__footer">
-                <button class="btn btn--primary" data-modal-close>关闭</button>
-            </div>
-        </div>
-    </div>
-
-    <script src="scripts/main.js" type="module"></script>
+    
+    <div id="modal-container" aria-hidden="true"></div>
+    
+    <script src="scripts/main.js" type="module" defer></script>
+    
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "GovernmentOrganization",
+        "name": "National Stats",
+        "description": "宏观经济数据分析平台",
+        "url": "https://badhope.github.io/national_stats",
+        "logo": "https://badhope.github.io/national_stats/logo.svg",
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+86-10-12345678",
+            "contactType": "customer service",
+            "availableLanguage": ["Chinese", "English"]
+        }
+    }
+    </script>
 </body>
 </html>
